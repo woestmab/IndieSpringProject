@@ -1,1 +1,2 @@
-Problem:  Transportation to and from school / work is confusing and complicated.  It would be much easier to enter my schedule into a web app and have it calculate the best routes each day to make efficient use of my time.  Ideally I would also like to implement a system to take weather into account and suggest either a bus or bike solution.
+#Problem:
+Transportation to and from school / work is confusing and complicated.  It would be much easier to enter my schedule into a web app and have it calculate the best routes each day to make efficient use of my time.  Ideally I would also like to implement a system to take weather into account and suggest either a bus or bike solution.
