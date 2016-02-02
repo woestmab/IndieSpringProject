@@ -5,3 +5,5 @@
 	* 3 hours outside practice with IntelliJ and reading
 2. Week 2
 	* 4 hours class time
+	* 6 hours working on exercises
+	* 
