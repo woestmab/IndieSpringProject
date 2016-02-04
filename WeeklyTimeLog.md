@@ -8,3 +8,6 @@
 	* 4 hours class time
 	* 6 hours working on exercises
 	* 2 hours reading and watching video
+3. Week 3
+	* 2 hours class time
+	* .5 hours drawing wire frame
