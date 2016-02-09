@@ -11,4 +11,4 @@
 3. Week 3
 	* 2 hours class time
 	* .5 hours drawing wire frame
-	* 8 hours working on exercises
+	* 12 hours working on exercises
