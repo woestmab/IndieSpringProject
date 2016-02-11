@@ -12,3 +12,8 @@
 	* 2 hours class time
 	* .5 hours drawing wire frame
 	* 12 hours working on exercises
+4. Week 4
+    * 2 hours html coding
+    * 2 hours working on calendar
+    
+    
