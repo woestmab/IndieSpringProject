@@ -15,5 +15,6 @@
 4. Week 4
     * 2 hours html coding
     * 2 hours working on calendar
-    
+    * 4 hours class time
+    * .25 hour working on review 
     
