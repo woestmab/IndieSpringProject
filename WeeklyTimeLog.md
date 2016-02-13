@@ -1,5 +1,4 @@
 #Time Log
-
 1. Week 1
 	* 4 hours class time
 	* 1 hour outside practice with IntelliJ
@@ -17,4 +16,3 @@
     * 2 hours working on calendar
     * 4 hours class time
     * .25 hour working on review 
-    
