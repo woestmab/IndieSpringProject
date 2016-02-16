@@ -12,13 +12,23 @@
 * Week 5 - UML & ER diagramming for they system to show how the entire project will function from front end to back.
 	* Diagram classes
 	* Research design patterns (ongoing)
+	* Figure out how to integrate Spring framework
 
 * Week 6 - Create unit testing that must be passed during each stage of the project.
 	* Tests for backend
 	* Tests for frontend (how?)
 	* Tests for data
+	
+* Week 7
+    * Create dao
+    * Create POJOS
+    * Implement use for Spring Framework <- update this with more info after research
+    
+* Week 8
+    * Create business logic
+    * Use framework to pass JSON data to frontend
 
-* Week 7 - 9 - Prototype and build Interactive calendar for entering schedule from website.
+* Week 9 - 10 - Prototype and build Interactive calendar for entering schedule from website.
 	* Clickable dates
 	* Popup for schedule entry
 	* Calendar pages displaying each month
