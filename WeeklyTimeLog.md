@@ -16,3 +16,7 @@
     * 2 hours working on calendar
     * 4 hours class time
     * .25 hour working on review 
+5. Week 5
+    * 4 hours class time
+    * 2 hours reading
+    * 2.5 working on ERD and UML
