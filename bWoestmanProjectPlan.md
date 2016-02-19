@@ -26,7 +26,7 @@
     
 * Week 8
     * Create business logic
-    * Use framework to pass JSON data to frontend
+    * Use framework to pass JSON data to frontend - Gson object should do what I want
 
 * Week 9 - 10 - Prototype and build Interactive calendar for entering schedule from website.
 	* Clickable dates
