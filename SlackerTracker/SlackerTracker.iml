@@ -28,5 +28,9 @@
     <orderEntry type="library" exported="" scope="TEST" name="junit" level="application" />
     <orderEntry type="library" exported="" name="log4j" level="application" />
     <orderEntry type="library" exported="" name="mysql-connector-java-5.1.35-bin" level="application" />
+    <orderEntry type="library" name="com.google.maps:google-maps-services:0.1.11" level="project" />
+    <orderEntry type="library" name="google-maps-services-0.1.11-javadoc" level="project" />
+    <orderEntry type="library" name="apache-http" level="application" />
+    <orderEntry type="library" name="gson:2.6.1" level="application" />
   </component>
 </module>
