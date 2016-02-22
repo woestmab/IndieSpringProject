@@ -23,3 +23,4 @@
     * 3 working on Google integration
     * 4 hours adding security to Apache
     * .5 hours researching Spring
+    * 3 hours working with google requests
