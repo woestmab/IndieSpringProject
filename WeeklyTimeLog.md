@@ -20,3 +20,5 @@
     * 4 hours class time
     * 2 hours reading
     * 2.5 working on ERD and UML
+    * 3 working on Google integration
+    * 4 hours adding security to Apache
