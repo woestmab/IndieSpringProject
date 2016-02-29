@@ -7,7 +7,11 @@
 --%>
 <link rel="stylesheet" href="../css/bootstrap.css">
 <link rel="stylesheet" href="../css/bootstrap-theme.css">
-<link rel="stylesheet" href="../js/bootstrap.js">
 <link rel="stylesheet" href="../fonts/glyphicons-halflings-regular.svg">
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<script type="text/javascript" src="../js/jquery-ui.js"></script>
+<script type="text/javascript" src="../js/bootstrap.js"></script>
+<script type="text/javascript" src="../js/underscore-min.js"></script>
+<script type="text/javascript" src="../js/calendar.js"></script>
 <%--angular--%>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>

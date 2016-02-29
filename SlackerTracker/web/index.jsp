@@ -10,11 +10,47 @@
 <html>
   <head>
     <title>Index</title>
-    <c:import url="templates/header-links.jsp" />
+    <c:import url="templates/header-links.jsp"/>
   </head>
   <body>
-    <c:import url="templates/header-nav-bar.jsp" />
+    <c:import url="templates/header-nav-bar.jsp"/>
     <h1>Index</h1>
+    <input type="button" id="backButton" value="Back">
     <a href="secure/secure-test.jsp">Secure Area</a>
+    <div id="calendar"></div>
+    <script type="text/javascript">
+
+      calendar();
+
+      var backButton = document.getElementById('backButton');
+      backButton.onclick = calendar;
+
+      function calendar() {
+        var calendar = $("#calendar").calendar(
+            {
+              tmpl_path: "tmpls/",
+              events_source: function () {
+                return [
+                  {
+                    "id": 1,
+                    "title": "Enterprise Java",
+                    "url": "https://github.com/MadJavaEntSpring2016/Home",
+                    "class": "event-success",
+                    "start": 1455215400000, // Milliseconds
+                    "end": 1455222000000 // Milliseconds
+                  },
+                  {
+                    "id": 2,
+                    "title": "PHP",
+                    "url": "http://flibbertigiblets.com/phpWebDevMySQL/",
+                    "class": "event-info",
+                    "start": 1455222600000, // Milliseconds
+                    "end": 1455229200000 // Milliseconds
+                  }
+                ];
+              }
+            });
+      }
+    </script>
   </body>
 </html>
