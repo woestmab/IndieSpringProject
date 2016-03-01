@@ -9,14 +9,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
   <head>
-    <title>Index</title>
+    <title>Welcome to the Slacker Tracker!</title>
     <c:import url="templates/header-links.jsp"/>
   </head>
   <body>
     <c:import url="templates/header-nav-bar.jsp"/>
-    <h1>Index</h1>
     <input type="button" id="backButton" value="Back">
-    <a href="secure/secure-test.jsp">Secure Area</a>
     <div id="calendar"></div>
     <script type="text/javascript">
 

@@ -14,5 +14,3 @@
 <script type="text/javascript" src="../js/bootstrap.js"></script>
 <script type="text/javascript" src="../js/underscore-min.js"></script>
 <script type="text/javascript" src="../js/calendar.js"></script>
-<%--angular--%>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
