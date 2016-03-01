@@ -24,3 +24,8 @@
     * 4 hours adding security to Apache
     * .5 hours researching Spring
     * 3 hours working with google requests
+6. Week 6
+    * 4 hours class time
+    * 2.5 hours reading
+    * 3 hours on activities
+    * 1 hour working on JSPs
