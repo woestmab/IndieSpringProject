@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="../css/bootstrap-theme.css">
 <link rel="stylesheet" href="../css/calendar.css">
 <link rel="stylesheet" href="../fonts/glyphicons-halflings-regular.svg">
+
 <script type="text/javascript" src="../js/jquery.min.js"></script>
 <script type="text/javascript" src="../js/jquery-ui.js"></script>
 <script type="text/javascript" src="../js/bootstrap.js"></script>

@@ -34,8 +34,8 @@
                     "title": "Enterprise Java",
                     "url": "https://github.com/MadJavaEntSpring2016/Home",
                     "class": "event-success",
-                    "start": 1455215400000, // Milliseconds
-                    "end": 1455222000000 // Milliseconds
+                    "start": 1456860816228, // Milliseconds
+                    "end": 1456860818000 // Milliseconds
                   },
                   {
                     "id": 2,
