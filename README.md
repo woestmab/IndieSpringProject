@@ -1,2 +1,3 @@
-# IndieSpringProject
-Spring Framework
+# IndieSpringProject - SlackerTracker
+## Website to help with transit scheduling
+
