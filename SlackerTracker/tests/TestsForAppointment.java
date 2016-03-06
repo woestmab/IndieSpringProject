@@ -6,8 +6,6 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 
-import java.math.BigDecimal;
-
 import static org.junit.Assert.assertTrue;
 
 public class TestsForAppointment
@@ -30,8 +28,8 @@ public class TestsForAppointment
         String title = "title";
         String url = "url";
         String aptClass = "aptClass";
-        BigDecimal start = new BigDecimal("12345678901234567890");
-        BigDecimal end = new BigDecimal("12345678901234567890");
+        String start = "12345678901234567890";
+        String end = "12345678901234567890";
 
         Appointment appt = new Appointment();
 

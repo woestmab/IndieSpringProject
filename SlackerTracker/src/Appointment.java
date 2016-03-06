@@ -1,5 +1,3 @@
-import java.math.BigDecimal;
-
 /**
  * Created by Bdub on 3/5/16.
  */
@@ -10,8 +8,8 @@ public class Appointment
     private String title;
     private String url;
     private String apptClass;
-    private BigDecimal start;
-    private BigDecimal end;
+    private String start;
+    private String end;
 
     /**
      * Gets id.
@@ -118,7 +116,7 @@ public class Appointment
      *
      * @return the start
      */
-    public BigDecimal getStart()
+    public String getStart()
     {
         return start;
     }
@@ -128,7 +126,7 @@ public class Appointment
      *
      * @param start the start
      */
-    public void setStart(BigDecimal start)
+    public void setStart(String start)
     {
         this.start = start;
     }
@@ -138,7 +136,7 @@ public class Appointment
      *
      * @return the end
      */
-    public BigDecimal getEnd()
+    public String getEnd()
     {
         return end;
     }
@@ -148,7 +146,7 @@ public class Appointment
      *
      * @param end the end
      */
-    public void setEnd(BigDecimal end)
+    public void setEnd(String end)
     {
         this.end = end;
     }

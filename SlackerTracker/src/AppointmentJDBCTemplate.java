@@ -1,7 +1,6 @@
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
-import java.math.BigDecimal;
 
 /**
  * Created by Bdub on 3/5/16.
@@ -17,12 +16,12 @@ public class AppointmentJDBCTemplate
         this.jdbcTemplateObject = new JdbcTemplate(dataSource);
     }
 
-    public void create(String title, String url, String apptClass, BigDecimal start,
-                       BigDecimal end)
+    public void create(String title, String url, String apptClass, String start,
+                       String end)
     {
         String SQL = "INSERT INTO appointments (title, url, apptClass, start, end) " +
                 "values (?, ?, ?, ?, ?)";
 
-        jdbcTemplateObject.update(SQL);
+        jdbcTemplateObject.update(SQL, title, url, apptClass, start, end);
     }
 }
