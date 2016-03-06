@@ -403,7 +403,7 @@ if(!String.prototype.formatNum) {
 		if('modal' in object) {
 			this._update_modal();
 		}
-	}
+	};
 
 	Calendar.prototype.setLanguage = function(lang) {
 		if(window.calendar_languages && (lang in window.calendar_languages)) {
@@ -413,7 +413,7 @@ if(!String.prototype.formatNum) {
 			this.locale = strings;
 			delete this.options.language;
 		}
-	}
+	};
 
 	Calendar.prototype._render = function() {
 		this.context.html('');
@@ -623,7 +623,7 @@ if(!String.prototype.formatNum) {
 		t.events = events;
 		t.cal = this;
 		return self.options.templates['week-days'](t);
-	}
+	};
 
 	Calendar.prototype._month = function(month) {
 		this._loadTemplate('year-month');
@@ -638,7 +638,7 @@ if(!String.prototype.formatNum) {
 		t.end = parseInt(new Date(this.options.position.start.getFullYear(), month + 1, 1, 0, 0, 0).getTime());
 		t.events = this.getEventsBetween(t.start, t.end);
 		return this.options.templates['year-month'](t);
-	}
+	};
 
 	Calendar.prototype._day = function(week, day) {
 		this._loadTemplate('month-day');
@@ -692,7 +692,7 @@ if(!String.prototype.formatNum) {
 		t.end = parseInt(t.start + 86400000);
 		t.events = this.getEventsBetween(t.start, t.end);
 		return this.options.templates['month-day'](t);
-	}
+	};
 
 	Calendar.prototype._getHoliday = function(date) {
 		var result = false;
@@ -873,22 +873,22 @@ if(!String.prototype.formatNum) {
 				return this.locale.title_day.format(this.locale['d' + p.getDay()], p.getDate(), this.locale['m' + p.getMonth()], p.getFullYear());
 				break;
 		}
-		return;
+
 	};
 
 	Calendar.prototype.isToday = function() {
 		var now = new Date().getTime();
 
 		return ((now > this.options.position.start) && (now < this.options.position.end));
-	}
+	};
 
 	Calendar.prototype.getStartDate = function() {
 		return this.options.position.start;
-	}
+	};
 
 	Calendar.prototype.getEndDate = function() {
 		return this.options.position.end;
-	}
+	};
 
 	Calendar.prototype._loadEvents = function() {
 		var self = this;
@@ -1069,7 +1069,7 @@ if(!String.prototype.formatNum) {
 							case "template":
 								self._loadTemplate("modal");
 								//	also serve calendar instance to underscore template to be able to access current language strings
-								modal_body.html(self.options.templates["modal"]({"event": event, "calendar": self}))
+								modal_body.html(self.options.templates["modal"]({"event": event, "calendar": self}));
 								break;
 						}
 
@@ -1249,7 +1249,7 @@ if(!String.prototype.formatNum) {
 		var k = c % 4;
 		var l = (32 + 2 * e + 2 * i - h - k) % 7;
 		var m = Math.floor((a + 11 * h + 22 * l) / 451);
-		var n0 = (h + l + 7 * m + 114)
+		var n0 = (h + l + 7 * m + 114);
 		var n = Math.floor(n0 / 31) - 1;
 		var p = n0 % 31 + 1;
 		return new Date(year, n, p + (offsetDays ? offsetDays : 0), 0, 0, 0);
