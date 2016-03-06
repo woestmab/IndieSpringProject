@@ -29,3 +29,9 @@
     * 2.5 hours reading
     * 3 hours on activities
     * 1 hour working on JSPs
+7. Week 7
+    * 4.5 hours class time (and hall)
+    * 2 hours on activities
+    * 1 hour reading
+    * 6 hours on Spring
+    * 2 hours on coding tests for my project
