@@ -35,3 +35,4 @@
     * 1 hour reading
     * 6 hours on Spring
     * 2 hours on coding tests for my project
+    * 3 hours on weatherWebService
