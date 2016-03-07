@@ -9,7 +9,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 
 
-public class TestsForAppointmentDao
+public class TestsForAppointmentJDBC
 {
     private static final Logger log = Logger.getLogger("slackerTracker");
 
