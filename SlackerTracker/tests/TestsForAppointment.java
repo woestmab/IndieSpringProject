@@ -10,7 +10,7 @@ import static org.junit.Assert.assertTrue;
 
 public class TestsForAppointment
 {
-    public static final Logger log = Logger.getLogger("slackerTracker");
+    private static final Logger log = Logger.getLogger("slackerTracker");
 
     /**
      * Test to string.

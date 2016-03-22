@@ -1,10 +1,8 @@
-import android.util.Log;
 import com.google.maps.GeoApiContext;
-import com.sun.xml.internal.txw2.Document;
 import org.apache.log4j.Logger;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -13,7 +11,9 @@ import java.net.URL;
  */
 public class Google
 {
+    private static final Logger log = Logger.getLogger("Google");
     private static final String GOOGLE_API_KEY = "AIzaSyBKXLe2ChocA8-es3OiIGlKcPnFtELUBH4\t\n";
+    private static final String USER_AGENT = "Mozilla/5.0";
 
     public static void main(String[] args)
     {
@@ -25,30 +25,33 @@ public class Google
         //test addresses
         String origin = "Madison";
         String destination = "Milwaukee";
-        String urlString = "http://maps.googleapis.com/maps/api/directions/json?sensor=false&origin="+origin+"&destination="+destination;
+        String url = "http://maps.googleapis" +
+                ".com/maps/api/directions/json?sensor=false&origin="+origin+"&destination="+destination;
 
         try
         {
-            URL googleService = new URL(urlString);
+            URL obj = new URL(url);
 
-            HttpURLConnection googleConnection = (HttpURLConnection) googleService.openConnection();
+            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
-            googleConnection.setAllowUserInteraction(false);
-            googleConnection.setDoInput(true);
-            googleConnection.setDoOutput(false);
-            googleConnection.setUseCaches(true);
-            googleConnection.setRequestMethod("GET");
-            googleConnection.connect();
+            con.setRequestMethod("GET");
+            con.setRequestProperty("User-Agent", USER_AGENT);
 
-            DocumentBuilderFactory factoryDir = DocumentBuilderFactory.newInstance();
-            DocumentBuilder parseDirInfo = factoryDir.newDocumentBuilder();
-            org.w3c.dom.Document docDir = parseDirInfo.parse(googleConnection.getInputStream());
+            int responseCode = con.getResponseCode();
+            log.info("\nSending 'GET' request to URL: " + url);
+            log.info("Response Code: " + responseCode);
 
-            googleConnection.disconnect();
-            String result = docDir.toString();
+            BufferedReader in = new BufferedReader(new InputStreamReader(con
+                    .getInputStream()));
+            String inputLine;
+            StringBuffer response = new StringBuffer();
 
-            System.out.println(result);
-
+            while ((inputLine = in.readLine()) != null)
+            {
+                response.append(inputLine);
+            }
+            in.close();
+            log.info(response.toString());
         }
         catch (Exception e)
         {
