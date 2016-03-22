@@ -36,3 +36,6 @@
     * 6 hours on Spring
     * 2 hours on coding tests for my project
     * 3 hours on weatherWebService
+8. Week 8
+    * 4 hours class time
+    * 5 hours on group project
