@@ -39,3 +39,7 @@
 8. Week 8
     * 4 hours class time
     * 5 hours on group project
+9. Week 9
+    * 4 hours class time
+    * .5 hours group meeting outside of class
+    * 2 hours working on group project
