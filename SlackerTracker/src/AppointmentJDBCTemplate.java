@@ -1,6 +1,7 @@
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
+import java.util.List;
 
 /**
  * Created by Bdub on 3/5/16.
@@ -23,5 +24,12 @@ public class AppointmentJDBCTemplate
                 "values (?, ?, ?, ?, ?)";
 
         jdbcTemplateObject.update(SQL, title, url, apptClass, start, end);
+    }
+
+    public List<Appointment> getAllAppointments()
+    {
+        String selectAll = "SELECT * FROM appointments";
+        List<Appointment> appts = jdbcTemplateObject.query(selectAll, new AppointmentMapper());
+        return appts;
     }
 }

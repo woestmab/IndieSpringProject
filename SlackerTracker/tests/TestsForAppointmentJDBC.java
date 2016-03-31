@@ -1,8 +1,13 @@
+import dalvik.annotation.TestTargetClass;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import static org.junit.Assert.*;
+
+import java.util.List;
 
 /**
  * Created by Bdub on 3/5/16.
@@ -12,6 +17,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class TestsForAppointmentJDBC
 {
     private static final Logger log = Logger.getLogger("slackerTracker");
+
+    //// TODO: 3/30/16 this won't work till locations are added to db
 
     @Test
     public void testCreateRecord()
@@ -30,5 +37,14 @@ public class TestsForAppointmentJDBC
                 ("appointmentJDBCTemplate");
 
         appointmentJDBCTemplate.create(title, url, apptClass, start, end);
+        List<Appointment> appts = appointmentJDBCTemplate.getAllAppointments();
+
+        assertTrue(appts.size() > 0);
+    }
+
+    @Test
+    public void testSelectAll()
+    {
+
     }
 }
