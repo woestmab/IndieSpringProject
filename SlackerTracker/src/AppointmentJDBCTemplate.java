@@ -17,13 +17,13 @@ public class AppointmentJDBCTemplate
         this.jdbcTemplateObject = new JdbcTemplate(dataSource);
     }
 
-    public void create(String title, String url, String apptClass, String start,
-                       String end)
+    public void create(int location, String title, String url, String apptClass, String
+            start, String end)
     {
-        String SQL = "INSERT INTO appointments (title, url, apptClass, start, end) " +
-                "values (?, ?, ?, ?, ?)";
+        String SQL = "INSERT INTO appointments (locations_id, title, url, apptClass, start, end) " +
+                "values (?, ?, ?, ?, ?, ?)";
 
-        jdbcTemplateObject.update(SQL, title, url, apptClass, start, end);
+        jdbcTemplateObject.update(SQL, location, title, url, apptClass, start, end);
     }
 
     public List<Appointment> getAllAppointments()

@@ -8,7 +8,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by Bdub on 3/6/16.
  */
-public class TestsForLocation
+public class TestsForLocation extends JDBCTemplate
 {
     private static final Logger log = Logger.getLogger("TestsForLocation");
 
@@ -58,18 +58,5 @@ public class TestsForLocation
         returned = loc.toString();
 
         assertTrue(str.equals(returned));
-    }
-
-    @Test
-    public void testCreateLocation()
-    {
-        log.setLevel(Level.DEBUG);
-
-        int returned;
-        jdbc = new LocationJDBCTemplate();
-
-        returned = jdbc.create(loc);
-
-        assertTrue(returned > 0);
     }
 }
