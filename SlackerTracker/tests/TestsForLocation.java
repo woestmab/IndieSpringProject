@@ -11,8 +11,12 @@ import static org.junit.Assert.assertTrue;
 public class TestsForLocation
 {
     private static final Logger log = Logger.getLogger("TestsForLocation");
-    private Location loc;
 
+    //classes
+    private Location loc;
+    private LocationJDBCTemplate jdbc;
+
+    //vars
     private Integer id;
     private Integer streetNumber;
     private String streetName;
@@ -24,6 +28,7 @@ public class TestsForLocation
     public void init()
     {
         loc = new Location();
+        jdbc = new LocationJDBCTemplate();
 
         id = 1;
         streetNumber = 2;
@@ -60,6 +65,11 @@ public class TestsForLocation
     {
         log.setLevel(Level.DEBUG);
 
+        int returned;
+        jdbc = new LocationJDBCTemplate();
 
+        returned = jdbc.create(loc);
+
+        assertTrue(returned > 0);
     }
 }

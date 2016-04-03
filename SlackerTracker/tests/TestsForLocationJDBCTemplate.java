@@ -1,4 +1,5 @@
 import android.util.Log;
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -10,7 +11,25 @@ import static org.junit.Assert.*;
  */
 public class TestsForLocationJDBCTemplate extends JDBCTemplate implements AppVars
 {
-    Location l;
+
+    private ApplicationContext context;
+    private LocationJDBCTemplate jdbc;
+    private Location loc;
+
+    @Before
+    public void createTestLocation()
+    {
+        loc = new Location();
+        context = new ClassPathXmlApplicationContext("Beans.xml");
+
+        jdbc = (LocationJDBCTemplate) context.getBean("locationJDBCTemplate");
+
+        loc.setStreetNumber(1);
+        loc.setStreetName("streetName");
+        loc.setCity("city");
+        loc.setState("state");
+        loc.setZip(1);
+    }
 
     @Test
     @Override
@@ -21,22 +40,15 @@ public class TestsForLocationJDBCTemplate extends JDBCTemplate implements AppVar
         Number id;
         String returned;
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-        LocationJDBCTemplate locationJDBCTemplate = (LocationJDBCTemplate) context
-                .getBean("locationJDBCTemplate");
+        id = jdbc.create(loc);
 
-        l = createTestLocation();
+        loc.setId(id.intValue());
 
-        id = locationJDBCTemplate.create(l.getStreetNumber(), l.getStreetName(),
-                l.getCity(), l.getState(), l.getZip());
+        returned = jdbc.getLocation(id.intValue()).toString();
 
-        l.setId(id.intValue());
+        assertTrue(returned.equals(loc.toString()));
 
-        returned = locationJDBCTemplate.getLocation(id.intValue()).toString();
-
-        assertTrue(returned.equals(l.toString()));
-
-        locationJDBCTemplate.delete(id);
+        jdbc.delete(id);
     }
 
     @Test
@@ -44,18 +56,12 @@ public class TestsForLocationJDBCTemplate extends JDBCTemplate implements AppVar
     public void testGet()
     {
         super.testGet();
-        Number id = 2;
+        Number id = 28;
         Location location;
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-        LocationJDBCTemplate locationJDBCTemplate = (LocationJDBCTemplate) context
-                .getBean("locationJDBCTemplate");
+        jdbc.create(loc);
 
-        l = createTestLocation();
-        locationJDBCTemplate.create(l.getStreetNumber(), l.getStreetName(),
-                l.getCity(), l.getState(), l.getZip());
-
-        location = locationJDBCTemplate.getLocation(id.intValue());
+        location = jdbc.getLocation(id.intValue());
 
         assertTrue(location != null);
     }
@@ -65,6 +71,7 @@ public class TestsForLocationJDBCTemplate extends JDBCTemplate implements AppVar
     public void testDelete()
     {
         super.testDelete();
+
     }
 
     @Test
@@ -79,19 +86,6 @@ public class TestsForLocationJDBCTemplate extends JDBCTemplate implements AppVar
     public void update()
     {
         super.update();
-    }
-
-    private Location createTestLocation()
-    {
-        Location location = new Location();
-
-        location.setStreetNumber(1);
-        location.setStreetName("streetName");
-        location.setCity("city");
-        location.setState("state");
-        location.setZip(1);
-
-        return location;
     }
 }
 

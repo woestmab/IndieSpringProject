@@ -23,11 +23,13 @@ public class LocationJDBCTemplate
         this.jdbcTemplateObject = new JdbcTemplate(dataSource);
     }
 
-    public int create(Integer streetNumber, String streetName, String city, String
-            state, Integer zip)
+    public int create(Location loc)
     {
-        //String sql = "INSERT INTO locations (street_number, street_name, city, state,
-        // " + "zip) VALUES (?, ?, ?, ?, ?)";
+        int streetNumber = loc.getStreetNumber();
+        String streetName = loc.getStreetName();
+        String city = loc.getCity();
+        String state = loc.getState();
+        int zip = loc.getZip();
 
         SimpleJdbcInsert insert = new SimpleJdbcInsert(dataSource)
                 .withTableName("locations")
