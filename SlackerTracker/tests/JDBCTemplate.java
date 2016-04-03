@@ -6,27 +6,27 @@ import org.apache.log4j.Logger;
  */
 public abstract class JDBCTemplate
 {
-    Logger log = Logger.getLogger("TestsForLocation");
+    static final Logger log = Logger.getLogger("TestsForLocation");
 
     public void testCreate()
     {
-        log.setLevel(Level.DEBUG);
+        log.setLevel(Level.TRACE);
     }
 
-    public void testGet() { log.setLevel(Level.DEBUG);}
+    public void testGet() { log.setLevel(Level.TRACE);}
 
     public void testDelete()
     {
-        log.setLevel(Level.DEBUG);
+        log.setLevel(Level.TRACE);
     }
 
     public void testFindAll()
     {
-        log.setLevel(Level.DEBUG);
+        log.setLevel(Level.TRACE);
     }
 
     public void update()
     {
-        log.setLevel(Level.DEBUG);
+        log.setLevel(Level.TRACE);
     }
 }

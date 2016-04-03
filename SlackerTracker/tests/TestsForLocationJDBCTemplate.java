@@ -1,8 +1,13 @@
 import android.util.Log;
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.apache.log4j.jmx.LoggerDynamicMBean;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
@@ -11,7 +16,6 @@ import static org.junit.Assert.*;
  */
 public class TestsForLocationJDBCTemplate extends JDBCTemplate implements AppVars
 {
-
     private ApplicationContext context;
     private LocationJDBCTemplate jdbc;
     private Location loc;
@@ -41,14 +45,16 @@ public class TestsForLocationJDBCTemplate extends JDBCTemplate implements AppVar
         String returned;
 
         id = jdbc.create(loc);
-
         loc.setId(id.intValue());
 
         returned = jdbc.getLocation(id.intValue()).toString();
 
+        log.debug(TAG + loc.toString());
+        log.debug(TAG + returned);
+
         assertTrue(returned.equals(loc.toString()));
 
-        jdbc.delete(id);
+        jdbc.deleteLocation(id);
     }
 
     @Test
@@ -56,14 +62,15 @@ public class TestsForLocationJDBCTemplate extends JDBCTemplate implements AppVar
     public void testGet()
     {
         super.testGet();
-        Number id = 28;
+        Number id = 40;
+        Location result;
         Location location;
 
         jdbc.create(loc);
 
-        location = jdbc.getLocation(id.intValue());
+        result = jdbc.getLocation(id.intValue());
 
-        assertTrue(location != null);
+        assertTrue(result != null);
     }
 
     @Test
@@ -72,6 +79,15 @@ public class TestsForLocationJDBCTemplate extends JDBCTemplate implements AppVar
     {
         super.testDelete();
 
+        Location result;
+        int id = jdbc.create(loc);
+
+        loc.setId(id);
+        jdbc.deleteLocation(id);
+
+        result = jdbc.getLocation(id);
+
+        assertTrue(result == null);
     }
 
     @Test

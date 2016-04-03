@@ -4,6 +4,7 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 import javax.sql.DataSource;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
@@ -49,13 +50,29 @@ public class LocationJDBCTemplate
 
     public Location getLocation(Integer id)
     {
-        String sql = "SELECT id, street_number, street_name, city, state, zip from " +
-                "locations where id = ?";
-        return (Location) jdbcTemplateObject.queryForObject(sql, new Object[]{id},
-                new LocationMapper());
+        ArrayList result;
+        Location location;
+
+        String sql = "SELECT id, street_number, street_name, city, state, zip FROM " +
+                "locations WHERE id = ?";
+
+        result = (ArrayList) jdbcTemplateObject.query(
+                sql, new Object[]{id}, new LocationMapper());
+
+        if (result.size() > 0)
+        {
+            return (Location) result.get(0);
+        }
+        else
+        {
+            return null;
+        }
+
+//        location.setId((Integer) result.get(0));
+//        location.setStreetNumber((Integer) result.get(1));
     }
 
-    public void delete(Number id)
+    public void deleteLocation(Number id)
     {
         String sql = "DELETE FROM locations WHERE id = ?";
 
