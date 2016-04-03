@@ -50,5 +50,6 @@
             });
       }
     </script>
+    <c:import url="templates/input-form.jsp"/>
   </body>
 </html>

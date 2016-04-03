@@ -1,5 +1,6 @@
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
@@ -9,40 +10,56 @@ import static org.junit.Assert.assertTrue;
  */
 public class TestsForLocation
 {
-    Logger log = Logger.getLogger("TestsForLocation");
+    private static final Logger log = Logger.getLogger("TestsForLocation");
+    private Location loc;
+
+    private Integer id;
+    private Integer streetNumber;
+    private String streetName;
+    private String city;
+    private String state;
+    private Integer zip;
+
+    @Before
+    public void init()
+    {
+        loc = new Location();
+
+        id = 1;
+        streetNumber = 2;
+        streetName = "streetName";
+        city = "city";
+        state = "state";
+        zip = 3;
+
+        loc.setId(id);
+        loc.setStreetNumber(streetNumber);
+        loc.setStreetName(streetName);
+        loc.setCity(city);
+        loc.setState(state);
+        loc.setZip(zip);
+    }
 
     @Test
     public void testToString()
     {
-        log.setLevel(Level.INFO);
-
         String str;
         String returned;
-
-        Integer id = 1;
-        Integer streetNumber = 2;
-        String streetName = "streetName";
-        String city = "city";
-        String state = "state";
-        Integer zip = 3;
 
         str = "id: " + id + ", streetNumber: " + streetNumber + ", streetName: " +
                 streetName + ", city: " + city + ", state: " + state + ", zip: " + zip;
 
-        Location location = new Location();
 
-        location.setId(id);
-        location.setStreetNumber(streetNumber);
-        location.setStreetName(streetName);
-        location.setCity(city);
-        location.setState(state);
-        location.setZip(zip);
-
-        returned = location.toString();
-
-        log.info(str);
-        log.info(returned);
+        returned = loc.toString();
 
         assertTrue(str.equals(returned));
+    }
+
+    @Test
+    public void testCreateLocation()
+    {
+        log.setLevel(Level.DEBUG);
+
+
     }
 }
