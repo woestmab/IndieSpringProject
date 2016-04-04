@@ -43,3 +43,7 @@
     * 4 hours class time
     * .5 hours group meeting outside of class
     * 2 hours working on group project
+10. Week 10
+    * 4 hours class time
+    * 6 hours working on gson & tests for team project
+    * 6 hours working on gson & tests for indie project
