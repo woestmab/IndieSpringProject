@@ -47,3 +47,7 @@
     * 4 hours class time
     * 6 hours working on gson & tests for team project
     * 6 hours working on gson & tests for indie project
+11. Week 11
+    * 4 hours class time
+    * 2 hours rethinking my database
+    * 4 hours gson practice on the team project
