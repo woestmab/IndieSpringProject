@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
   <head>
     <title>Input Form</title>
@@ -19,13 +20,13 @@
       <label for="streetName">Street Name</label>
       <input type="text" id="streetName" name="streetName">
 
-      <label for="city">Street Name</label>
+      <label for="city">City</label>
       <input type="text" id="city" name="city">
 
-      <label for="state">Street Name</label>
+      <label for="state">State</label>
       <input type="text" id="state" name="state">
 
-      <label for="zip">Street Name</label>
+      <label for="zip">Zip</label>
       <input type="text" id="zip" name="zip">
 
       <input type="submit" value="Submit" name="submit">

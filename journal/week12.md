@@ -1,0 +1,1 @@
+This week I didn't have time to work on my indie project because we were finishing up the team project instead.  I think we did a really good job on it and our grade reflected our efforts.  I'm quite happy with how much we learned and how well our group worked together to get everything done.

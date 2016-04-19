@@ -51,3 +51,6 @@
     * 4 hours class time
     * 2 hours rethinking my database
     * 4 hours gson practice on the team project
+12. Week 12
+    * 4 hours class time
+    * 6 hours finishing up team project
