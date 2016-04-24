@@ -8,10 +8,10 @@ import java.sql.SQLException;
  */
 
 
-public class LocationMapper implements RowMapper
+public class LocationMapper implements RowMapper<Location>
 {
     @Override
-    public Object mapRow(ResultSet rs, int rowNum) throws SQLException
+    public Location mapRow(ResultSet rs, int rowNum) throws SQLException
     {
         Location location = new Location();
 

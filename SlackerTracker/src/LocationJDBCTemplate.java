@@ -4,10 +4,7 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 import javax.sql.DataSource;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 /**
  * Created by Bdub on 3/6/16.
@@ -70,6 +67,15 @@ public class LocationJDBCTemplate
 
 //        location.setId((Integer) result.get(0));
 //        location.setStreetNumber((Integer) result.get(1));
+    }
+
+    public List<Location> getAllLocations()
+    {
+        ArrayList result;
+
+        String sql = "SELECT * FROM locations";
+
+        return jdbcTemplateObject.query(sql, new LocationMapper());
     }
 
     public void deleteLocation(Number id)
