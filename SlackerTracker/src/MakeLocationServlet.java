@@ -64,10 +64,7 @@ public class MakeLocationServlet extends HttpServlet implements AppVars
 
         locations = jdbc.getAllLocations();
 
-        for (Location l : locations)
-        {
-            log.debug("location: " + l.toString());
-        }
+        session.setAttribute("locations", locations);
 
         resp.sendRedirect("index.jsp");
     }

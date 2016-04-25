@@ -54,3 +54,6 @@
 12. Week 12
     * 4 hours class time
     * 6 hours finishing up team project
+13. Week 13
+    * 3 hours team project
+    * 10 hours working on form data saving to db
