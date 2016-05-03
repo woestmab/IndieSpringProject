@@ -57,3 +57,6 @@
 13. Week 13
     * 3 hours team project
     * 10 hours working on form data saving to db
+14. Week 14
+    * 2 hours on extracurricular
+    * 2 hours class
