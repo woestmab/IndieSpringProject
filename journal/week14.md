@@ -1,0 +1,1 @@
+This week has been all about Android for me.  I have a lot of work to do yet for Java but, unfortunately, it was my last priority based on scheduling. I will have all weekend and next week to dedicate to Java so I will have plenty of time (or at least that's what I'm telling myself). 
