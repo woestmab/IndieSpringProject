@@ -5,13 +5,16 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.maps.GeoApiContext;
 import com.google.maps.model.DirectionsResult;
+import com.google.maps.model.DirectionsStep;
 import entities.GoogleDirectionsResult;
+import entities.Step;
 import org.apache.log4j.Logger;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 /**
@@ -71,6 +74,17 @@ public class GoogleController
 
             GoogleDirectionsResult googleDirectionsResult = gson.fromJson(String.valueOf(response),
                     GoogleDirectionsResult.class);
+
+            ArrayList<Step> steps = new ArrayList<>();
+
+            for (GoogleDirectionsResult.Routes.Legs.Steps s : googleDirectionsResult.routes[0].legs[0].steps)
+            {
+                Step step = new Step();
+                step.setTravelMode(s.travel_mode);
+                step.setTransitDetails(s.transit_details);
+                step.setHtmlInstructions(s.html_instructions);
+                steps.add(step);
+            }
 
             log.debug(googleDirectionsResult);
         }
