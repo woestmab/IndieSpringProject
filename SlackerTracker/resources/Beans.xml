@@ -15,12 +15,12 @@
 
     <!-- Definition for appointmentJDBCTemplate bean -->
     <bean id="appointmentJDBCTemplate"
-          class="AppointmentJDBCTemplate">
+          class="persistence.AppointmentJDBCTemplate">
         <property name="dataSource"  ref="dataSource" />
     </bean>
 
     <!-- Definition for locationJDBCTemplate bean -->
-    <bean id="locationJDBCTemplate" class="LocationJDBCTemplate">
+    <bean id="locationJDBCTemplate" class="controllers.LocationJDBCTemplate">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 

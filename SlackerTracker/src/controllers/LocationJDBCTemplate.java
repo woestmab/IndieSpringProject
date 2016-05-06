@@ -1,6 +1,9 @@
+package controllers;
+
+import entities.Location;
+import persistence.LocationMapper;
 import org.apache.log4j.Logger;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 import javax.sql.DataSource;
@@ -11,7 +14,7 @@ import java.util.*;
  */
 public class LocationJDBCTemplate
 {
-    private static final Logger log = Logger.getLogger("LocationJDBCTemplate");
+    private static final Logger log = Logger.getLogger("controllers.LocationJDBCTemplate");
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplateObject;
 

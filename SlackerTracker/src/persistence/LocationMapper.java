@@ -1,3 +1,6 @@
+package persistence;
+
+import entities.Location;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

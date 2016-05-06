@@ -1,6 +1,7 @@
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import entities.Appointment;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 

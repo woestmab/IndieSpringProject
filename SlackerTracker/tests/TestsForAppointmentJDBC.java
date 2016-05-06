@@ -1,9 +1,10 @@
-import dalvik.annotation.TestTargetClass;
+import entities.Appointment;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import persistence.AppointmentJDBCTemplate;
 
 import static org.junit.Assert.*;
 

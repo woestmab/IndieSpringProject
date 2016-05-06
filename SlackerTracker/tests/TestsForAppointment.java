@@ -2,6 +2,7 @@
  * Created by Bdub on 3/5/16.
  */
 
+import entities.Appointment;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.junit.Test;

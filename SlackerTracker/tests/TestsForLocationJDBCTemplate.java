@@ -1,13 +1,10 @@
-import android.util.Log;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-import org.apache.log4j.jmx.LoggerDynamicMBean;
+import controllers.LocationJDBCTemplate;
+import entities.AppVars;
+import entities.Location;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 

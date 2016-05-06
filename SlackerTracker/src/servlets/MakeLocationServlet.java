@@ -1,10 +1,12 @@
-import android.util.Log;
-import org.apache.http.client.protocol.RequestAddCookies;
+package servlets;
+
+import controllers.LocationJDBCTemplate;
+import entities.AppVars;
+import entities.Location;
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import javax.jms.Session;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,7 +27,7 @@ import java.util.List;
 )
 public class MakeLocationServlet extends HttpServlet implements AppVars
 {
-    private static Logger log = Logger.getLogger("MakeLocationServlet");
+    private static Logger log = Logger.getLogger("servlets.MakeLocationServlet");
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)
