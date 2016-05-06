@@ -3,26 +3,26 @@
 * Week 2 - Project Plan and Problem Statement.
 
 * Week 3 - Get bus route data from Madison Metro and create a database to hold all of the route information sorted into appropriate tables.
-	[] https://developers.google.com/transit/?hl=en
+	[X] https://developers.google.com/transit/?hl=en
 
 * Week 4 - Design & Wireframe.  
-	[] Create illustrations to show how the site will be laid out.
-	[] Color considerations and styles will be added along with some notes about animation and extra "flashy" features and ideas.
+	[X] Create illustrations to show how the site will be laid out.
+	[X] Color considerations and styles will be added along with some notes about animation and extra "flashy" features and ideas.
 
 * Week 5 - UML & ER diagramming for they system to show how the entire project will function from front end to back.
-	[] Diagram classes
-	[] Research design patterns (ongoing)
-	[] Figure out how to integrate Spring framework
+	[X] Diagram classes
+	[X] Research design patterns (ongoing)
+	[X] Figure out how to integrate Spring framework
 
 * Week 6 - Create unit testing that must be passed during each stage of the project.
-	[] Tests for backend
-	[] Tests for frontend (how?)
-	[] Tests for data
+	[X] Tests for backend
+	[X] Tests for frontend (how?)
+	[X] Tests for data
 	
 * Week 7
-    [] Create dao
-    [] Create POJOS
-    [] Implement use for Spring Framework <- update this with more info after research
+    [X] Create dao
+    [X] Create POJOS
+    [X] Implement use for Spring Framework <- update this with more info after research
     
 * Week 8
     [] Create business logic
