@@ -10,7 +10,7 @@
 <html>
   <head>
     <title>SecurePage</title>
-    <c:import url="../templates/header-links.jsp" />
+    <c:import url="../templates/head-links.jsp" />
   </head>
   <body>
     <h1>SecurePage</h1>

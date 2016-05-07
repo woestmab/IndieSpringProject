@@ -10,11 +10,11 @@
 <html>
   <head>
     <title>Welcome to the Slacker Tracker!</title>
-    <c:import url="templates/header-links.jsp"/>
+    <c:import url="templates/head-links.jsp"/>
   </head>
   <body>
     <c:import url="templates/header-nav-bar.jsp"/>
-    <input type="button" id="backButton" value="Back">
+    <input type="button" class="btn btn-default" id="backButton" value="Back">
     <div id="calendar"></div>
     <script type="text/javascript">
 
@@ -70,9 +70,9 @@
             <form action="make-loc" method="post">
               <c:import url="templates/location-form-fragment.jsp"/>
               <c:import url="templates/appointment-form-fragment.jsp"/>
-              <button type="button" class="primary" onclick='' data-dismiss="modal">Cancel
+              <button type="button" class="btn btn-warning" onclick='' data-dismiss="modal">Cancel
               </button>
-              <input type="submit" name="submit" value="Submit">
+              <input type="submit" class="btn btn-success" name="submit" value="Submit">
             </form>
           </div>
         </div>

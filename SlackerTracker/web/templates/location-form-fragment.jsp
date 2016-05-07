@@ -52,7 +52,7 @@
   <div class="form-group">
     <label class="col-md-4 control-label" for="zip">Zip Code:</label>
     <div class="col-md-6">
-      <input id="zip" name="zip" type="text" placeholder="Zip code" class="form-control input-md">
+      <input id="zip" name="zip" type="number" placeholder="Zip code" class="form-control input-md">
 
     </div>
   </div>

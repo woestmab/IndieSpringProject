@@ -10,7 +10,7 @@
 <html>
   <head>
     <title>Login</title>
-    <c:import url="../templates/header-links.jsp"/>
+    <c:import url="../templates/head-links.jsp"/>
   </head>
   <body>
     <h1 class="col-sm-offset-2">Please login to continue</h1>

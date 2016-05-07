@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <link rel="stylesheet" href="../css/bootstrap.css">
-<link rel="stylesheet" href="../css/bootstrap-theme.css">
+<link rel="stylesheet" href="../css/flat-ui.css">
 <link rel="stylesheet" href="../css/calendar.css">
 <link rel="stylesheet" href="../fonts/glyphicons-halflings-regular.svg">
 
