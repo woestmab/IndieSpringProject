@@ -39,7 +39,7 @@ public class Validator
         return false;
     }
 
-    private boolean validDate(Long date)
+    private boolean validDate(String date)
     {
         return false;
     }

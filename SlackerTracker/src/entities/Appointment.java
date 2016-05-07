@@ -16,8 +16,8 @@ public class Appointment implements Form
     private String title;
     private String url;
     private String apptClass;
-    private Date start;
-    private Date end;
+    private String start;
+    private String end;
 
     public String getType()
     {
@@ -124,22 +124,22 @@ public class Appointment implements Form
         this.apptClass = apptClass;
     }
 
-    public Date getStart()
+    public String getStart()
     {
         return start;
     }
 
-    public void setStart(Date start)
+    public void setStart(String start)
     {
         this.start = start;
     }
 
-    public Date getEnd()
+    public String getEnd()
     {
         return end;
     }
 
-    public void setEnd(Date end)
+    public void setEnd(String end)
     {
         this.end = end;
     }

@@ -22,12 +22,12 @@ import java.util.List;
  */
 
 @WebServlet(
-        name = "makeLocationServlet",
+        name = "make-loc",
         urlPatterns = "/make-loc"
 )
-public class CreateLocationServlet extends HttpServlet implements AppVars
+public class MakeLocationServlet extends HttpServlet implements AppVars
 {
-    private static Logger log = Logger.getLogger("servlets.CreateLocationServlet");
+    private static Logger log = Logger.getLogger("servlets.MakeLocationServlet");
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp)

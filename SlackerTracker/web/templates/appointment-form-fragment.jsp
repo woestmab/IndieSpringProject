@@ -17,7 +17,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="apptTitle">Appointment Title:</label>
       <div class="col-md-6">
-        <input id="apptTitle" name="apptTitle" type="text" placeholder="Appointment title" class="form-control input-md" required>
+        <input id="apptTitle" name="apptTitle" type="text" placeholder="Appointment title" class="form-control input-md" >
 
       </div>
     </div>
@@ -26,7 +26,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="startTime">Start Time:</label>
       <div class="col-md-6">
-        <input id="startTime" name="startTime" type="time" placeholder="Start time" class="form-control input-md" required>
+        <input id="startTime" name="startTime" type="time" placeholder="Start time" class="form-control input-md" >
 
       </div>
     </div>
@@ -44,7 +44,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="date">Date:</label>
       <div class="col-md-6">
-        <input id="date" name="date" type="date" required>
+        <input id="date" name="date" type="date" class="form-control input-md">
 
       </div>
     </div>

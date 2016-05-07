@@ -16,7 +16,7 @@
   <div class="form-group">
     <label class="col-md-4 control-label" for="streetNumber">Street Number:</label>
     <div class="col-md-6">
-      <input id="streetNumber" name="streetNumber" type="text" placeholder="Street Number" class="form-control input-md" required="">
+      <input id="streetNumber" name="streetNumber" type="text" placeholder="Street Number" class="form-control input-md" ="">
 
     </div>
   </div>
@@ -25,7 +25,7 @@
   <div class="form-group">
     <label class="col-md-4 control-label" for="streetName">Street Name:</label>
     <div class="col-md-6">
-      <input id="streetName" name="streetName" type="text" placeholder="Street Name" class="form-control input-md" required="">
+      <input id="streetName" name="streetName" type="text" placeholder="Street Name" class="form-control input-md" ="">
 
     </div>
   </div>
