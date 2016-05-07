@@ -20,9 +20,9 @@ import java.util.Calendar;
 /**
  * Created by Bdub on 2/19/16.
  */
-public class GoogleController
+public class GoogleDirectionsController
 {
-    private static final Logger log = Logger.getLogger("controllers.GoogleController");
+    private static final Logger log = Logger.getLogger("controllers.GoogleDirectionsController");
     private static final String GOOGLE_API_KEY = "AIzaSyBKXLe2ChocA8-es3OiIGlKcPnFtELUBH4\t\n";
     private static final String USER_AGENT = "Mozilla/5.0";
 

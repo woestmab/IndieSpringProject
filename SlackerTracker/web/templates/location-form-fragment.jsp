@@ -7,7 +7,6 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<form action="make-loc" method="post">
 
   <label for="streetNumber">Street Number</label>
   <input type="text" id="streetNumber" name="streetNumber">
@@ -22,8 +21,4 @@
   <input type="text" id="state" name="state">
 
   <label for="zip">Zip</label>
-  <input type="text" id="zip" name="zip">
-
-  <input type="submit" value="Submit" name="submit">
-
-</form>
+  <input type="number" id="zip" name="zip">

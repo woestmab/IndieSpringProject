@@ -13,7 +13,8 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li class="active"><a href="#">Calendar</a></li>
-          <li><a href="https://www.google.com/maps" target="blank">controllers.GoogleController Maps</a></li>
+          <li><a href="https://www.google.com/maps" target="blank">Google Maps
+            Maps</a></li>
           <li><a href="http://www.cityofmadison.com/metro/" target="blank">Madison Metro</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">

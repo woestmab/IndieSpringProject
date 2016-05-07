@@ -1,4 +1,4 @@
-import controllers.GoogleController;
+import controllers.GoogleDirectionsController;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 
@@ -12,8 +12,8 @@ public class TestsForGoogleController
     @Test
     public void testRun()
     {
-        GoogleController googleController = new GoogleController();
-        googleController.run();
+        GoogleDirectionsController googleDirectionsController = new GoogleDirectionsController();
+        googleDirectionsController.run();
     }
 
 }

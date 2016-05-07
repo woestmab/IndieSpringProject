@@ -50,6 +50,10 @@
             });
       }
     </script>
-    <c:import url="templates/input-form.jsp"/>
+    <form action="make-loc" method="post">
+      <c:import url="templates/location-form-fragment.jsp"/>
+      <c:import url="templates/appointment-form-fragment.jsp"/>
+      <input type="submit" name="submit" value="Submit">
+    </form>
   </body>
 </html>
