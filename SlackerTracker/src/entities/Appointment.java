@@ -1,17 +1,28 @@
 package entities;
 
+import Interfaces.Form;
+
+import java.util.Date;
+
 /**
  * Created by Bdub on 3/5/16.
  */
-public class Appointment
+public class Appointment implements Form
 {
+    private static final String type = "Appointment";
+
     private Integer id;
     private Integer locationsId;
     private String title;
     private String url;
     private String apptClass;
-    private String start;
-    private String end;
+    private Date start;
+    private Date end;
+
+    public String getType()
+    {
+        return type;
+    }
 
     /**
      * Gets id.
@@ -113,42 +124,22 @@ public class Appointment
         this.apptClass = apptClass;
     }
 
-    /**
-     * Gets start.
-     *
-     * @return the start
-     */
-    public String getStart()
+    public Date getStart()
     {
         return start;
     }
 
-    /**
-     * Sets start.
-     *
-     * @param start the start
-     */
-    public void setStart(String start)
+    public void setStart(Date start)
     {
         this.start = start;
     }
 
-    /**
-     * Gets end.
-     *
-     * @return the end
-     */
-    public String getEnd()
+    public Date getEnd()
     {
         return end;
     }
 
-    /**
-     * Sets end.
-     *
-     * @param end the end
-     */
-    public void setEnd(String end)
+    public void setEnd(Date end)
     {
         this.end = end;
     }

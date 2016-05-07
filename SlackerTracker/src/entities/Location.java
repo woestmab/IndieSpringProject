@@ -1,16 +1,25 @@
 package entities;
 
+import Interfaces.Form;
+
 /**
  * Created by Bdub on 3/6/16.
  */
-public class Location
+public class Location implements Form
 {
+    private static final String type = "Location";
+
     private Integer id;
     private Integer streetNumber;
     private String streetName;
     private String city;
     private String state;
     private Integer zip;
+
+    public String getType()
+    {
+        return type;
+    }
 
     /**
      * Gets id.

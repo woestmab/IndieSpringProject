@@ -10,7 +10,7 @@
 
   <fieldset>
 
-    <!-- Form Name -->
+    <!-- Interfaces.Form Name -->
     <legend>Details</legend>
 
     <!-- Text input-->
@@ -36,6 +36,15 @@
       <label class="col-md-4 control-label" for="endTime">End Time:</label>
       <div class="col-md-6">
         <input id="endTime" name="endTime" type="time" placeholder="End time" class="form-control input-md">
+
+      </div>
+    </div>
+
+    <!-- Text input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="date">Date:</label>
+      <div class="col-md-6">
+        <input id="date" name="date" type="date" required>
 
       </div>
     </div>
