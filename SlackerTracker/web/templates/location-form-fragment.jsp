@@ -10,7 +10,7 @@
 
 <fieldset>
 
-  <legend>Location Entry Form</legend>
+  <legend>Location</legend>
 
   <!-- Street number input-->
   <div class="form-group">

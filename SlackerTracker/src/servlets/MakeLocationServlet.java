@@ -38,10 +38,6 @@ public class MakeLocationServlet extends HttpServlet implements AppVars
         LocationJDBCTemplate jdbc = (LocationJDBCTemplate) context.getBean
                 ("locationJDBCTemplate");
 
-        List<Location> locations = new ArrayList<>();
-
-        int id;
-
         String streetNumber;
         String streetName;
         String city;
@@ -60,13 +56,7 @@ public class MakeLocationServlet extends HttpServlet implements AppVars
         loc.setState(state);
         loc.setZip(Integer.parseInt(zip));
 
-        id = (jdbc.create(loc));
-
-        HttpSession session = req.getSession();
-
-        locations = jdbc.getAllLocations();
-
-        session.setAttribute("locations", locations);
+        jdbc.create(loc);
 
         resp.sendRedirect("index.jsp");
     }

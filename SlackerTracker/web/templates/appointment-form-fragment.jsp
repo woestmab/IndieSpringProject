@@ -11,13 +11,13 @@
   <fieldset>
 
     <!-- Form Name -->
-    <legend>Appointment Entry Form</legend>
+    <legend>Details</legend>
 
     <!-- Text input-->
     <div class="form-group">
       <label class="col-md-4 control-label" for="apptTitle">Appointment Title:</label>
       <div class="col-md-6">
-        <input id="apptTitle" name="apptTitle" type="text" placeholder="Appointment title" class="form-control input-md">
+        <input id="apptTitle" name="apptTitle" type="text" placeholder="Appointment title" class="form-control input-md" required>
 
       </div>
     </div>
@@ -26,7 +26,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="startTime">Start Time:</label>
       <div class="col-md-6">
-        <input id="startTime" name="startTime" type="time" placeholder="Start time" class="form-control input-md">
+        <input id="startTime" name="startTime" type="time" placeholder="Start time" class="form-control input-md" required>
 
       </div>
     </div>
