@@ -1,10 +1,10 @@
 package servlets;
 
-import controllers.LocationJDBCTemplate;
-import controllers.VarConverter;
+import persistence.LocationJDBCTemplate;
+import util.Validator;
+import util.VarConverter;
 import entities.Appointment;
 import entities.Location;
-import org.apache.commons.logging.Log;
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -14,8 +14,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by Bdub on 4/2/16.
@@ -37,21 +37,24 @@ public class MakeAppointmentServlet extends HttpServlet
         VarConverter converter;
         ApplicationContext context;
         LocationJDBCTemplate jdbc;
+        Validator val;
 
         loc = new Location();
         appt = new Appointment();
         converter = new VarConverter();
         context = new ClassPathXmlApplicationContext("Beans.xml");
         jdbc = (LocationJDBCTemplate) context.getBean("locationJDBCTemplate");
+        val = new Validator();
 
-//        location vars
+        ArrayList<String> inputs = new ArrayList<>();
+
         String streetNumber;
         String streetName;
         String city;
         String state;
         String zip;
 
-//        appointment vars
+        String title;
         String startTime;
         String endTime;
         String date;
@@ -62,25 +65,45 @@ public class MakeAppointmentServlet extends HttpServlet
         state = request.getParameter("state");
         zip = request.getParameter("zip");
 
-        // TODO: 5/7/16 remove testing
+        title = request.getParameter("title");
         startTime = request.getParameter("startTime");
         endTime = request.getParameter("endTime");
         date = request.getParameter("date");
 
-        log.debug("date" + converter.stringToLocalDate(date).toString());
+        inputs.add(streetNumber);
+        inputs.add(streetName);
+        inputs.add(city);
+        inputs.add(state);
+        inputs.add(zip);
 
-        loc.setStreetNumber(Integer.parseInt(streetNumber));
-        loc.setStreetName(streetName);
-        loc.setCity(city);
-        loc.setState(state);
-        loc.setZip(Integer.parseInt(zip));
+        inputs.add(title);
+        inputs.add(startTime);
+        inputs.add(endTime);
+        inputs.add(date);
+
+        if (!val.isEmpty(inputs))
+        {
+            loc.setStreetNumber(Integer.parseInt(streetNumber));
+            loc.setStreetName(streetName);
+            loc.setCity(city);
+            loc.setState(state);
+            loc.setZip(Integer.parseInt(zip));
+
+            appt.setTitle(title);
+            appt.setStart(startTime);
+            appt.setStart(endTime);
+            appt.setStart(date);
+        }
+
+//
 
         //loc.setId(jdbc.create(loc));
 
         response.sendRedirect("index.jsp");
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException
     {
 
     }

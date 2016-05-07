@@ -1,5 +1,5 @@
-import controllers.LocationJDBCTemplate;
-import entities.AppVars;
+import persistence.LocationJDBCTemplate;
+import interfaces.AppVars;
 import entities.Location;
 import org.junit.Before;
 import org.junit.Test;

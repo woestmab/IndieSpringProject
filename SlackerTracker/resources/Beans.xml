@@ -20,7 +20,7 @@
     </bean>
 
     <!-- Definition for locationJDBCTemplate bean -->
-    <bean id="locationJDBCTemplate" class="controllers.LocationJDBCTemplate">
+    <bean id="locationJDBCTemplate" class="persistence.LocationJDBCTemplate">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 

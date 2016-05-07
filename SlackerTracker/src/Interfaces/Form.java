@@ -1,4 +1,4 @@
-package Interfaces;
+package interfaces;
 
 /**
  * Created by Bdub on 5/6/16.

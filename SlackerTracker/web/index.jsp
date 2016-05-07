@@ -71,10 +71,11 @@
             <form action="make-appt" method="post">
               <div id="locationForm">
                 <c:import url="templates/location-form-fragment.jsp"/>
+                <c:import url="templates/appointment-form-fragment.jsp"/>
               </div>
               <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel
               </button>
-              <button type="button" class="btn btn-success">Next</button>
+              <input type="submit" class="btn btn-success" value="submit" name="submit">
             </form>
           </div>
 

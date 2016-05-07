@@ -1,6 +1,6 @@
 package entities;
 
-import Interfaces.Form;
+import interfaces.Form;
 
 /**
  * Created by Bdub on 3/6/16.

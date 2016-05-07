@@ -1,4 +1,4 @@
-package controllers;
+package persistence;
 
 import entities.Location;
 import persistence.LocationMapper;
@@ -14,7 +14,7 @@ import java.util.*;
  */
 public class LocationJDBCTemplate
 {
-    private static final Logger log = Logger.getLogger("controllers.LocationJDBCTemplate");
+    private static final Logger log = Logger.getLogger("persistence.LocationJDBCTemplate");
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplateObject;
 

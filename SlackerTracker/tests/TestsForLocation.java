@@ -1,4 +1,4 @@
-import controllers.LocationJDBCTemplate;
+import persistence.LocationJDBCTemplate;
 import entities.Location;
 import org.apache.log4j.Logger;
 import org.junit.Before;

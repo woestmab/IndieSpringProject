@@ -1,10 +1,10 @@
-package controllers;
+package util;
 
-import Interfaces.Form;
+import interfaces.Form;
 import entities.Appointment;
 import entities.Location;
 
-import java.util.Date;
+import java.util.ArrayList;
 
 /**
  * Created by Bdub on 5/6/16.
@@ -13,19 +13,6 @@ import java.util.Date;
 public class Validator
 {
     private Form form;
-
-    public boolean validate(Form form)
-    {
-        switch (form.getType())
-        {
-            case "Appointment":
-                return validAppointment((Appointment)form);
-            case "Location":
-                return validLocation((Location)form);
-            default:
-                return false;
-        }
-    }
 
     private boolean validAppointment(Appointment appt)
     {
@@ -51,8 +38,33 @@ public class Validator
         return length > 0 && length <= 100;
     }
 
-    private boolean validZip(int input)
+    public boolean validZip(int input)
     {
         return input > 9999;
+    }
+
+    public boolean isEmpty(ArrayList<String> inputs)
+    {
+        for (String input : inputs)
+        {
+            if (input.length() == 0)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean validate(Form form)
+    {
+        switch (form.getType())
+        {
+            case "Appointment":
+                return validAppointment((Appointment)form);
+            case "Location":
+                return validLocation((Location)form);
+            default:
+                return false;
+        }
     }
 }

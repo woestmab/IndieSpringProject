@@ -1,8 +1,6 @@
 package entities;
 
-import Interfaces.Form;
-
-import java.util.Date;
+import interfaces.Form;
 
 /**
  * Created by Bdub on 3/5/16.
@@ -18,6 +16,7 @@ public class Appointment implements Form
     private String apptClass;
     private String start;
     private String end;
+    private String date;
 
     public String getType()
     {
@@ -142,6 +141,16 @@ public class Appointment implements Form
     public void setEnd(String end)
     {
         this.end = end;
+    }
+
+    public String getDate()
+    {
+        return date;
+    }
+
+    public void setDate(String date)
+    {
+        this.date = date;
     }
 
     public String toString()
