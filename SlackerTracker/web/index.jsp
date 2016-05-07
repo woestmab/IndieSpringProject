@@ -50,10 +50,33 @@
             });
       }
     </script>
-    <form action="make-loc" method="post">
-      <c:import url="templates/location-form-fragment.jsp"/>
-      <c:import url="templates/appointment-form-fragment.jsp"/>
-      <input type="submit" name="submit" value="Submit">
-    </form>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal"
+            data-target="#addAppointmentModal">
+      Add Appointment
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addAppointmentModal" tabindex="-1" role="dialog"
+         aria-labelledby="addAppointmentModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="addAppointmentModalLabel">Add Appointment</h4>
+          </div>
+          <div class="modal-body">
+            <form action="make-loc" method="post">
+              <c:import url="templates/location-form-fragment.jsp"/>
+              <c:import url="templates/appointment-form-fragment.jsp"/>
+              <button type="button" class="primary" onclick='' data-dismiss="modal">Cancel
+              </button>
+              <input type="submit" name="submit" value="Submit">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -8,17 +8,52 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-  <label for="streetNumber">Street Number</label>
-  <input type="text" id="streetNumber" name="streetNumber">
+<fieldset>
 
-  <label for="streetName">Street Name</label>
-  <input type="text" id="streetName" name="streetName">
+  <legend>Location Entry Form</legend>
 
-  <label for="city">City</label>
-  <input type="text" id="city" name="city">
+  <!-- Street number input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="streetNumber">Street Number:</label>
+    <div class="col-md-6">
+      <input id="streetNumber" name="streetNumber" type="text" placeholder="Street Number" class="form-control input-md" required="">
 
-  <label for="state">State</label>
-  <input type="text" id="state" name="state">
+    </div>
+  </div>
 
-  <label for="zip">Zip</label>
-  <input type="number" id="zip" name="zip">
+  <!-- Street name input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="streetName">Street Name:</label>
+    <div class="col-md-6">
+      <input id="streetName" name="streetName" type="text" placeholder="Street Name" class="form-control input-md" required="">
+
+    </div>
+  </div>
+
+  <!-- City input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="city">City:</label>
+    <div class="col-md-6">
+      <input id="city" name="city" type="text" placeholder="City" class="form-control input-md">
+
+    </div>
+  </div>
+
+  <!-- State input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="state">State:</label>
+    <div class="col-md-6">
+      <input id="state" name="state" type="text" placeholder="State" class="form-control input-md">
+
+    </div>
+  </div>
+
+  <!-- Zip input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="zip">Zip Code:</label>
+    <div class="col-md-6">
+      <input id="zip" name="zip" type="text" placeholder="Zip code" class="form-control input-md">
+
+    </div>
+  </div>
+</fieldset>
