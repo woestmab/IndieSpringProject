@@ -95,8 +95,6 @@ public class MakeAppointmentServlet extends HttpServlet
             appt.setDate(date);
         }
 
-//
-
         //loc.setId(jdbc.create(loc));
 
         response.sendRedirect("index.jsp");
