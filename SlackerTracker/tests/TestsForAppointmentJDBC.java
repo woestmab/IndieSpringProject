@@ -26,12 +26,12 @@ public class TestsForAppointmentJDBC
     {
         log.setLevel(Level.DEBUG);
 
-        int location = 40;
+        int location = 103;
         String title = "title";
         String url = "url";
         String apptClass = "apptClass";
-        String start = "12345678901234567890";
-        String end = "12345678901234567890";
+        long start = System.currentTimeMillis();
+        long end = System.currentTimeMillis();
 
         ApplicationContext context = new ClassPathXmlApplicationContext
                 ("Beans.xml");

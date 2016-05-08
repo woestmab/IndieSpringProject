@@ -23,8 +23,8 @@ public class AppointmentMapper implements RowMapper
         appointment.setTitle(rs.getString("title"));
         appointment.setUrl(rs.getString("url"));
         appointment.setApptClass(rs.getString("apptClass"));
-        appointment.setStart(rs.getString("start"));
-        appointment.setEnd(rs.getString("end"));
+        appointment.setStart(rs.getLong("start"));
+        appointment.setEnd(rs.getLong("end"));
 
         return appointment;
     }

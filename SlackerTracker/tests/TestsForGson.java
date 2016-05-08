@@ -33,8 +33,8 @@ public class TestsForGson
         appt.setTitle("title");
         appt.setUrl("url");
         appt.setApptClass("aptClass");
-        appt.setStart("start");
-        appt.setEnd("end");
+        appt.setStart(1);
+        appt.setEnd(2);
 
         Gson gson = new GsonBuilder()
                 .disableHtmlEscaping()

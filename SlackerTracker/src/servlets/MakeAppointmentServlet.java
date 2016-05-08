@@ -90,9 +90,9 @@ public class MakeAppointmentServlet extends HttpServlet
             loc.setZip(Integer.parseInt(zip));
 
             appt.setTitle(title);
-            appt.setStart(startTime);
-            appt.setStart(endTime);
-            appt.setStart(date);
+            appt.setStart(Long.valueOf(startTime));
+            appt.setStart(Long.valueOf(endTime));
+            appt.setDate(date);
         }
 
 //

@@ -20,8 +20,8 @@ public class AppointmentJDBCTemplate
         this.jdbcTemplateObject = new JdbcTemplate(dataSource);
     }
 
-    public void create(int location, String title, String url, String apptClass, String
-            start, String end)
+    public void create(int location, String title, String url, String apptClass, long
+            start, long end)
     {
         String SQL = "INSERT INTO appointments (locations_id, title, url, apptClass, start, end) " +
                 "values (?, ?, ?, ?, ?, ?)";
