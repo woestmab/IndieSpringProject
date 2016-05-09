@@ -27,26 +27,7 @@
         var calendar = $("#calendar").calendar(
             {
               tmpl_path: "tmpls/",
-              events_source: function () {
-                return [
-                  {
-                    "id": 1,
-                    "title": "Enterprise Java",
-                    "url": "https://github.com/MadJavaEntSpring2016/Home",
-                    "class": "event-success",
-                    "start": 1456860816228, // Milliseconds
-                    "end": 1456860818000 // Milliseconds
-                  },
-                  {
-                    "id": 2,
-                    "title": "PHP",
-                    "url": "http://flibbertigiblets.com/phpWebDevMySQL/",
-                    "class": "event-info",
-                    "start": 1455222600000, // Milliseconds
-                    "end": 1455229200000 // Milliseconds
-                  }
-                ];
-              }
+              events_source: "/get-appts"
             });
       }
     </script>

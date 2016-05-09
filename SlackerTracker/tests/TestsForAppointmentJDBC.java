@@ -1,6 +1,7 @@
 import entities.Appointment;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -18,8 +19,14 @@ import java.util.List;
 public class TestsForAppointmentJDBC
 {
     private static final Logger log = Logger.getLogger("slackerTracker");
+    private static ApplicationContext context;
+    private static AppointmentJDBCTemplate appointmentJDBCTemplate;
 
-    //// TODO: 3/30/16 this won't work till locations are added to db
+    @Before
+    public void init()
+    {
+
+    }
 
     @Test
     public void testCreateRecord()

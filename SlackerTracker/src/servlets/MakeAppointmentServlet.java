@@ -93,7 +93,7 @@ public class MakeAppointmentServlet extends HttpServlet
                 appt.setLocationsId(loc.getId());
                 apptJDBC.insert(appt);
             }
-            // TODO: 5/8/16 errormessage
+            // TODO: 5/8/16 error message
         }
         // TODO: 5/8/16 error message
 
