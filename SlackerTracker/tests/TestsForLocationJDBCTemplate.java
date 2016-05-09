@@ -41,7 +41,7 @@ public class TestsForLocationJDBCTemplate extends JDBCTemplate implements AppVar
         Number id;
         String returned;
 
-        id = jdbc.create(loc);
+        id = jdbc.insert(loc);
         loc.setId(id.intValue());
 
         returned = jdbc.getLocation(id.intValue()).toString();
@@ -63,7 +63,7 @@ public class TestsForLocationJDBCTemplate extends JDBCTemplate implements AppVar
         Location result;
         Location location;
 
-        jdbc.create(loc);
+        jdbc.insert(loc);
 
         result = jdbc.getLocation(id.intValue());
 
@@ -77,7 +77,7 @@ public class TestsForLocationJDBCTemplate extends JDBCTemplate implements AppVar
         super.testDelete();
 
         Location result;
-        int id = jdbc.create(loc);
+        int id = jdbc.insert(loc);
 
         loc.setId(id);
         jdbc.deleteLocation(id);

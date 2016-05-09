@@ -26,6 +26,8 @@ public class TestsForAppointmentJDBC
     {
         log.setLevel(Level.DEBUG);
 
+        Appointment appt;
+
         int location = 103;
         String title = "title";
         String url = "url";
@@ -33,12 +35,21 @@ public class TestsForAppointmentJDBC
         long start = System.currentTimeMillis();
         long end = System.currentTimeMillis();
 
+        appt = new Appointment();
+
+        appt.setLocationsId(location);
+        appt.setTitle(title);
+        appt.setUrl(url);
+        appt.setApptClass(apptClass);
+        appt.setStart(start);
+        appt.setEnd(end);
+
         ApplicationContext context = new ClassPathXmlApplicationContext
                 ("Beans.xml");
         AppointmentJDBCTemplate appointmentJDBCTemplate = (AppointmentJDBCTemplate) context.getBean
                 ("appointmentJDBCTemplate");
 
-        appointmentJDBCTemplate.create(location, title, url, apptClass, start, end);
+        appointmentJDBCTemplate.insert(appt);
         List<Appointment> appts = appointmentJDBCTemplate.getAllAppointments();
 
         assertTrue(appts.size() > 0);

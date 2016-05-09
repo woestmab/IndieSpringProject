@@ -24,7 +24,7 @@ public class LocationJDBCTemplate
         this.jdbcTemplateObject = new JdbcTemplate(dataSource);
     }
 
-    public int create(Location loc)
+    public int insert(Location loc)
     {
         int streetNumber = loc.getStreetNumber();
         String streetName = loc.getStreetName();

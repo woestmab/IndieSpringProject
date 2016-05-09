@@ -1,5 +1,7 @@
 package servlets;
 
+import org.springframework.jdbc.core.JdbcTemplate;
+import persistence.AppointmentJDBCTemplate;
 import persistence.LocationJDBCTemplate;
 import util.Validator;
 import util.VarConverter;
@@ -36,39 +38,32 @@ public class MakeAppointmentServlet extends HttpServlet
         Appointment appt;
         VarConverter converter;
         ApplicationContext context;
-        LocationJDBCTemplate jdbc;
+        JdbcTemplate jdbc;
         Validator val;
+        AppointmentJDBCTemplate apptJDBC;
+        LocationJDBCTemplate locJDBC;
+        ArrayList<String> inputs;
 
         loc = new Location();
         appt = new Appointment();
         converter = new VarConverter();
         context = new ClassPathXmlApplicationContext("Beans.xml");
-        jdbc = (LocationJDBCTemplate) context.getBean("locationJDBCTemplate");
+        locJDBC = (LocationJDBCTemplate) context.getBean("locationJDBCTemplate");
+        apptJDBC = (AppointmentJDBCTemplate) context.getBean("appointmentJDBCTemplate");
         val = new Validator();
 
-        ArrayList<String> inputs = new ArrayList<>();
+        inputs = new ArrayList<>();
 
-        String streetNumber;
-        String streetName;
-        String city;
-        String state;
-        String zip;
+        String streetNumber = request.getParameter("streetNumber");
+        String streetName = request.getParameter("streetName");
+        String city = request.getParameter("city");
+        String state = request.getParameter("state");
+        String zip = request.getParameter("zip");
 
-        String title;
-        String startTime;
-        String endTime;
-        String date;
-
-        streetNumber = request.getParameter("streetNumber");
-        streetName = request.getParameter("streetName");
-        city = request.getParameter("city");
-        state = request.getParameter("state");
-        zip = request.getParameter("zip");
-
-        title = request.getParameter("title");
-        startTime = request.getParameter("startTime");
-        endTime = request.getParameter("endTime");
-        date = request.getParameter("date");
+        String title = request.getParameter("title");
+        String startTime = request.getParameter("startTime");
+        String endTime = request.getParameter("endTime");
+        String date = request.getParameter("date");
 
         inputs.add(streetNumber);
         inputs.add(streetName);
@@ -81,8 +76,11 @@ public class MakeAppointmentServlet extends HttpServlet
         inputs.add(endTime);
         inputs.add(date);
 
+        boolean boo = val.isEmpty(inputs);
+
         if (!val.isEmpty(inputs))
         {
+            log.debug("not empty");
             loc.setStreetNumber(Integer.parseInt(streetNumber));
             loc.setStreetName(streetName);
             loc.setCity(city);
@@ -90,12 +88,14 @@ public class MakeAppointmentServlet extends HttpServlet
             loc.setZip(Integer.parseInt(zip));
 
             appt.setTitle(title);
-            appt.setStart(Long.valueOf(startTime));
-            appt.setStart(Long.valueOf(endTime));
+            appt.setStart(converter.stringToTimeInMs(startTime, date));
+            appt.setEnd(converter.stringToTimeInMs(startTime, date));
             appt.setDate(date);
-        }
 
-        //loc.setId(jdbc.create(loc));
+            loc.setId(locJDBC.insert(loc));
+            appt.setLocationsId(loc.getId());
+            apptJDBC.insert(appt);
+        }
 
         response.sendRedirect("index.jsp");
     }

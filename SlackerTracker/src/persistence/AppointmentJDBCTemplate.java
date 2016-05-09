@@ -20,19 +20,35 @@ public class AppointmentJDBCTemplate
         this.jdbcTemplateObject = new JdbcTemplate(dataSource);
     }
 
-    public void create(int location, String title, String url, String apptClass, long
-            start, long end)
+    public void insert(Appointment appt)
     {
-        String SQL = "INSERT INTO appointments (locations_id, title, url, apptClass, start, end) " +
-                "values (?, ?, ?, ?, ?, ?)";
+        String sql;
 
-        jdbcTemplateObject.update(SQL, location, title, url, apptClass, start, end);
+        int location;
+        String title;
+        String url;
+        String apptClass;
+        long start;
+        long end;
+
+        location = appt.getLocationsId();
+        title = appt.getTitle();
+        url = appt.getUrl();
+        apptClass = appt.getApptClass();
+        start = appt.getStart();
+        end = appt.getEnd();
+
+        sql = "INSERT INTO appointments (locations_id, title, url, apptClass, start, end) " +
+                "VALUES (?, ?, ?, ?, ?, ?)";
+
+        jdbcTemplateObject.update(sql, location, title, url, apptClass, start, end);
     }
 
     public List<Appointment> getAllAppointments()
     {
         String selectAll = "SELECT * FROM appointments";
-        List<Appointment> appts = jdbcTemplateObject.query(selectAll, new AppointmentMapper());
+        List<Appointment> appts;
+        appts = jdbcTemplateObject.query(selectAll, new AppointmentMapper());
         return appts;
     }
 }
