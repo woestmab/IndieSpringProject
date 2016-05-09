@@ -1,4 +1,5 @@
 import entities.Appointment;
+import entities.Location;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,6 +15,7 @@ public class TestsForValidator
 {
     private static final Logger log = Logger.getLogger("TestsForLocation");
     private static Appointment appt;
+    private static Location loc;
     private static Validator validator;
 
     @Before
@@ -21,6 +23,7 @@ public class TestsForValidator
     {
         validator = new Validator();
         appt = new Appointment();
+        loc = new Location();
 
         appt.setId(1);
         appt.setLocationsId(2);
@@ -30,6 +33,20 @@ public class TestsForValidator
         appt.setStart(1);
         appt.setEnd(9);
         appt.setDate("2016-05-10");
+
+        loc.setId(1);
+        loc.setStreetNumber(1);
+        loc.setStreetName("streetName");
+        loc.setCity("city");
+        loc.setState("state");
+        loc.setZip(11111);
+    }
+
+    @Test
+    public void testForValidate()
+    {
+        assertTrue(validator.validate(appt));
+        assertTrue(validator.validate(loc));
     }
 
     @Test
@@ -43,12 +60,6 @@ public class TestsForValidator
         val = new Validator();
 
         assertTrue(val.isEmpty(inputs));
-    }
-
-    @Test
-    public void testForValidate()
-    {
-        assertTrue(validator.validate(appt));
     }
 
     @Test

@@ -38,7 +38,6 @@ public class MakeAppointmentServlet extends HttpServlet
         Appointment appt;
         VarConverter converter;
         ApplicationContext context;
-        JdbcTemplate jdbc;
         Validator val;
         AppointmentJDBCTemplate apptJDBC;
         LocationJDBCTemplate locJDBC;
