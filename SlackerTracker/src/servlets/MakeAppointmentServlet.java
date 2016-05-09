@@ -76,9 +76,7 @@ public class MakeAppointmentServlet extends HttpServlet
         inputs.add(endTime);
         inputs.add(date);
 
-        boolean boo = val.isEmpty(inputs);
-
-        if (!val.isEmpty(inputs))
+        if (val.isEmpty(inputs))
         {
             log.debug("not empty");
             loc.setStreetNumber(Integer.parseInt(streetNumber));
