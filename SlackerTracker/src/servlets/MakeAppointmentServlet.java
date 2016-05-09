@@ -89,7 +89,7 @@ public class MakeAppointmentServlet extends HttpServlet
 
             appt.setTitle(title);
             appt.setStart(converter.stringToTimeInMs(startTime, date));
-            appt.setEnd(converter.stringToTimeInMs(startTime, date));
+            appt.setEnd(converter.stringToTimeInMs(endTime, date));
             appt.setDate(date);
 
             loc.setId(locJDBC.insert(loc));

@@ -3,6 +3,7 @@ import org.junit.Test;
 import util.Validator;
 
 import java.util.ArrayList;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by Bdub on 5/8/16.
@@ -21,6 +22,12 @@ public class TestsForValidator
 
         val = new Validator();
 
-        log.debug(val.isEmpty(inputs));
+        assertTrue(val.isEmpty(inputs));
+    }
+
+    @Test
+    public void testForValidate()
+    {
+
     }
 }
