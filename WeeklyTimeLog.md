@@ -60,3 +60,12 @@
 14. Week 14
     * 2 hours on extracurricular
     * 2 hours class
+15. Week 15
+    * 4 hours class time
+    * 15 hours working on assorted project tasks
+        * Gson from bus transit info
+        * Modal submit form
+        * Validation
+        * Theme
+        * Ajax request to return appointments
+        * Ajax request to post my form
