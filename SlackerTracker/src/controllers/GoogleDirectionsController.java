@@ -85,8 +85,6 @@ public class GoogleDirectionsController
                 step.setHtmlInstructions(s.html_instructions);
                 steps.add(step);
             }
-
-            log.debug(googleDirectionsResult);
         }
         catch (Exception e)
         {

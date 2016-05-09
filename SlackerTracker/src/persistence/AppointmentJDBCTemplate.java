@@ -4,6 +4,7 @@ import entities.Appointment;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import javax.sql.DataSource;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -30,6 +31,7 @@ public class AppointmentJDBCTemplate
         String apptClass;
         long start;
         long end;
+        String date;
 
         location = appt.getLocationsId();
         title = appt.getTitle();
@@ -37,11 +39,12 @@ public class AppointmentJDBCTemplate
         apptClass = appt.getApptClass();
         start = appt.getStart();
         end = appt.getEnd();
+        date = appt.getDate();
 
-        sql = "INSERT INTO appointments (locations_id, title, url, apptClass, start, end) " +
-                "VALUES (?, ?, ?, ?, ?, ?)";
+        sql = "INSERT INTO appointments (locations_id, title, url, apptClass, start, end, date) " +
+                "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-        jdbcTemplateObject.update(sql, location, title, url, apptClass, start, end);
+        jdbcTemplateObject.update(sql, location, title, url, apptClass, start, end, date);
     }
 
     public List<Appointment> getAllAppointments()
