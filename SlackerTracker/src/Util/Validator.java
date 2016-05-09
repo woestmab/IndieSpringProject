@@ -45,14 +45,14 @@ public class Validator
 
     public boolean isEmpty(ArrayList<String> inputs)
     {
-        for (String input : inputs)
+        for (String s : inputs)
         {
-            if (input.length() == 0)
+            if (s == null || s.length() == 0)
             {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     public boolean validate(Form form)
