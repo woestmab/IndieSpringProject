@@ -1,6 +1,5 @@
 package servlets;
 
-import org.springframework.jdbc.core.JdbcTemplate;
 import persistence.AppointmentJDBCTemplate;
 import persistence.LocationJDBCTemplate;
 import util.Validator;
@@ -59,7 +58,7 @@ public class MakeAppointmentServlet extends HttpServlet
         String state = request.getParameter("state");
         String zip = request.getParameter("zip");
 
-        String title = request.getParameter("title");
+        String title = request.getParameter("apptTitle");
         String startTime = request.getParameter("startTime");
         String endTime = request.getParameter("endTime");
         String date = request.getParameter("date");
@@ -75,9 +74,8 @@ public class MakeAppointmentServlet extends HttpServlet
         inputs.add(endTime);
         inputs.add(date);
 
-        if (val.isEmpty(inputs))
+        if (!val.isEmpty(inputs))
         {
-            log.debug("not empty");
             loc.setStreetNumber(Integer.parseInt(streetNumber));
             loc.setStreetName(streetName);
             loc.setCity(city);
@@ -89,10 +87,15 @@ public class MakeAppointmentServlet extends HttpServlet
             appt.setEnd(converter.stringToTimeInMs(endTime, date));
             appt.setDate(date);
 
-            loc.setId(locJDBC.insert(loc));
-            appt.setLocationsId(loc.getId());
-            apptJDBC.insert(appt);
+            if (val.validForm(loc) && val.validForm(appt))
+            {
+                loc.setId(locJDBC.insert(loc));
+                appt.setLocationsId(loc.getId());
+                apptJDBC.insert(appt);
+            }
+            // TODO: 5/8/16 errormessage
         }
+        // TODO: 5/8/16 error message
 
         response.sendRedirect("index.jsp");
     }

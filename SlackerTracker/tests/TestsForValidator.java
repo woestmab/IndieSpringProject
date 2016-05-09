@@ -45,8 +45,8 @@ public class TestsForValidator
     @Test
     public void testForValidate()
     {
-        assertTrue(validator.validate(appt));
-        assertTrue(validator.validate(loc));
+        assertTrue(validator.validForm(appt));
+        assertTrue(validator.validForm(loc));
     }
 
     @Test
