@@ -19,6 +19,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.ws.rs.QueryParam;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -40,37 +41,51 @@ public class GetApptsServlet extends HttpServlet
     {
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {
-        ApplicationContext context;
-        AppointmentJDBCTemplate apptJDBC;
-        ArrayList<Appointment> appointments;
-        Gson gson;
-        String json;
+        Validator val = new Validator();
         PrintWriter out;
+        String date;
 
-        context = new ClassPathXmlApplicationContext("Beans.xml");
-        apptJDBC = (AppointmentJDBCTemplate) context.getBean("appointmentJDBCTemplate");
-        out = response.getWriter();
+        date = request.getParameter("date");
 
-        appointments = (ArrayList<Appointment>) apptJDBC.getAllAppointments();
+        if (date == null)
+        {
+            ApplicationContext context;
+            AppointmentJDBCTemplate apptJDBC;
+            ArrayList<Appointment> appointments;
+            Gson gson;
+            String json;
 
-        gson = new GsonBuilder()
-                .disableHtmlEscaping()
-                .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_DASHES)
-                .setPrettyPrinting()
-                .serializeNulls()
-                .create();
+            context = new ClassPathXmlApplicationContext("Beans.xml");
+            apptJDBC = (AppointmentJDBCTemplate) context.getBean("appointmentJDBCTemplate");
+            out = response.getWriter();
 
-        json = "{\n\"success\": 1,\n\"result\": ";
-        json += gson.toJson(appointments);
-        json += "}";
+            appointments = (ArrayList<Appointment>) apptJDBC.getAllAppointments();
 
-        response.setContentType("application/json");
-        out.print(json);
-        out.flush();
+            gson = new GsonBuilder()
+                    .disableHtmlEscaping()
+                    .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_DASHES)
+                    .setPrettyPrinting()
+                    .serializeNulls()
+                    .create();
 
-        //response.sendRedirect("index.jsp");
+            json = "{\n\"success\": 1,\n\"result\": ";
+            json += gson.toJson(appointments);
+            json += "}";
+
+            response.setContentType("application/json");
+            out.print(json);
+            out.flush();
+
+            //response.sendRedirect("index.jsp");
+        }
+        else if (val.validDate(date))
+        {
+            out = response.getWriter();
+            out.println(date);
+            out.flush();
+
+        }
     }
 }
