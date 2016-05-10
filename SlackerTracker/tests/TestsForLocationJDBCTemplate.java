@@ -6,6 +6,8 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**
@@ -25,11 +27,11 @@ public class TestsForLocationJDBCTemplate extends JDBCTemplate implements AppVar
 
         jdbc = (LocationJDBCTemplate) context.getBean("locationJDBCTemplate");
 
-        loc.setStreetNumber(1);
-        loc.setStreetName("streetName");
-        loc.setCity("city");
-        loc.setState("state");
-        loc.setZip(1);
+        loc.setStreetNumber(26);
+        loc.setStreetName("Ridgeview Court");
+        loc.setCity("Madison");
+        loc.setState("Wisconsin");
+        loc.setZip(53704);
     }
 
     @Test
@@ -99,6 +101,14 @@ public class TestsForLocationJDBCTemplate extends JDBCTemplate implements AppVar
     public void update()
     {
         super.update();
+    }
+
+    @Test
+    public void testGetLocation()
+    {
+        int count;
+        count = jdbc.getLocationCount(loc);
+        log.debug("returned list");
     }
 }
 

@@ -23,35 +23,25 @@ public class AppointmentJDBCTemplate
 
     public void insert(Appointment appt)
     {
-        String sql;
+        String insert;
 
-        int location;
-        String title;
-        String url;
-        String apptClass;
-        long start;
-        long end;
-        String date;
-
-        location = appt.getLocationsId();
-        title = appt.getTitle();
-        url = appt.getUrl();
-        apptClass = appt.getApptClass();
-        start = appt.getStart();
-        end = appt.getEnd();
-        date = appt.getDate();
-
-        sql = "INSERT INTO appointments (locations_id, title, url, apptClass, start, end, date) " +
+        insert = "INSERT INTO appointments (locations_id, title, url, apptClass, start, end, date) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-        jdbcTemplateObject.update(sql, location, title, url, apptClass, start, end, date);
+        jdbcTemplateObject.update(insert, appt.getLocationsId(), appt.getTitle(), appt.getUrl(),
+                appt.getApptClass(), appt.getStart(), appt.getEnd(), appt.getDate());
     }
 
-    public List<Appointment> getAllAppointments()
+    public List getAllAppointments()
     {
-        String selectAll = "SELECT * FROM appointments";
-        List<Appointment> appts;
-        appts = jdbcTemplateObject.query(selectAll, new AppointmentMapper());
+        String sql = "SELECT * FROM appointments";
+        List appts;
+        appts = jdbcTemplateObject.query(sql, new AppointmentMapper());
         return appts;
+    }
+
+    public List getApptsByDate(String date)
+    {
+        return null;
     }
 }

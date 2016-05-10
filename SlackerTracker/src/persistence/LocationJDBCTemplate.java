@@ -62,8 +62,7 @@ public class LocationJDBCTemplate
         if (result.size() > 0)
         {
             return (Location) result.get(0);
-        }
-        else
+        } else
         {
             return null;
         }
@@ -86,5 +85,25 @@ public class LocationJDBCTemplate
         String sql = "DELETE FROM locations WHERE id = ?";
 
         jdbcTemplateObject.update(sql, id);
+    }
+
+    public int getLocationCount(Location loc)
+    {
+        List results;
+        String sql;
+        Object[] inputs;
+
+        sql = "SELECT count(id) FROM locations WHERE street_number = ? " +
+                "AND street_name = ? " +
+                "AND city = ? " +
+                "AND state = ? " +
+                "AND zip = ?";
+
+        inputs = new Object[]{loc.getStreetNumber(), loc.getStreetName(), loc.getCity(),
+                loc.getState(), loc.getZip()};
+
+        int id = jdbcTemplateObject.queryForInt(sql, inputs);
+
+        return id;
     }
 }
