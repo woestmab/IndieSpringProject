@@ -87,13 +87,13 @@ public class LocationJDBCTemplate
         jdbcTemplateObject.update(sql, id);
     }
 
-    public int getLocationCount(Location loc)
+    public List getLocationId(Location loc)
     {
         List results;
         String sql;
         Object[] inputs;
 
-        sql = "SELECT count(id) FROM locations WHERE street_number = ? " +
+        sql = "SELECT id FROM locations WHERE street_number = ? " +
                 "AND street_name = ? " +
                 "AND city = ? " +
                 "AND state = ? " +
@@ -102,8 +102,8 @@ public class LocationJDBCTemplate
         inputs = new Object[]{loc.getStreetNumber(), loc.getStreetName(), loc.getCity(),
                 loc.getState(), loc.getZip()};
 
-        int id = jdbcTemplateObject.queryForInt(sql, inputs);
+        results = jdbcTemplateObject.queryForList(sql, inputs);
 
-        return id;
+        return results;
     }
 }

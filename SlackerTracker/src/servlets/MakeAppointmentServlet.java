@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Bdub on 4/2/16.
@@ -41,6 +42,7 @@ public class MakeAppointmentServlet extends HttpServlet
         AppointmentJDBCTemplate apptJDBC;
         LocationJDBCTemplate locJDBC;
         ArrayList<String> inputs;
+        List locResults;
 
         loc = new Location();
         appt = new Appointment();
@@ -89,9 +91,18 @@ public class MakeAppointmentServlet extends HttpServlet
 
             if (val.validForm(loc) && val.validForm(appt))
             {
-                loc.setId(locJDBC.insert(loc));
-                appt.setLocationsId(loc.getId());
-                apptJDBC.insert(appt);
+                locResults = locJDBC.getLocationId(loc);
+
+                if (locResults.isEmpty())
+                {
+                    loc.setId(locJDBC.insert(loc));
+                    appt.setLocationsId(loc.getId());
+                    apptJDBC.insert(appt);
+                }
+                else
+                {
+
+                }
             }
             // TODO: 5/8/16 error message
         }

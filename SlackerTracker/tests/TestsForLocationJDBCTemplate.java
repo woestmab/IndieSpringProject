@@ -106,9 +106,9 @@ public class TestsForLocationJDBCTemplate extends JDBCTemplate implements AppVar
     @Test
     public void testGetLocation()
     {
-        int count;
-        count = jdbc.getLocationCount(loc);
-        log.debug("returned list");
+        List results;
+        results = jdbc.getLocationId(loc);
+        log.debug("getLocation " + results.isEmpty());
     }
 }
 
