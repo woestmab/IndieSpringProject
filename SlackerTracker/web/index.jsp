@@ -10,10 +10,10 @@
 <html>
   <head>
     <title>Slacker Tracker</title>
-    <c:import url="templates/head-links.jsp"/>
+    <c:import url="${pageContext.request.contextPath}/templates/head-links.jsp"/>
   </head>
   <body>
-    <c:import url="templates/header-nav-bar.jsp"/>
+    <c:import url="${pageContext.request.contextPath}/templates/header-nav-bar.jsp"/>
     <input type="button" class="btn btn-default" id="backButton" value="Back">
     <div id="calendar"></div>
     <!-- Button trigger modal -->
@@ -36,8 +36,8 @@
           <div class="modal-body">
             <form action="make-appt" method="post">
               <div id="locationForm">
-                <c:import url="templates/location-form-fragment.jsp"/>
-                <c:import url="templates/appointment-form-fragment.jsp"/>
+                <c:import url="${pageContext.request.contextPath}/templates/location-form-fragment.jsp"/>
+                <c:import url="${pageContext.request.contextPath}/templates/appointment-form-fragment.jsp"/>
               </div>
               <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel
               </button>
