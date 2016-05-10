@@ -11,6 +11,7 @@
         var backButton = $('#backButton');
         var calTab = $('#cal-tab');
         var routeTab = $('#route-tab');
+        var routeBtn = $('#route-btn');
 
         backButton.onclick = calendar;
 
@@ -33,6 +34,19 @@
         {
             $('#route-div').show();
             $('#cal-div').hide();
+        });
+
+        routeBtn.click(function ()
+        {
+            var url = "/get-appts";
+            var date = $('#route-date-input').val();
+
+            url += "?date=" + date;
+
+            $.get(url, function (data)
+            {
+                console.log(data);
+            })
         })
 
     });

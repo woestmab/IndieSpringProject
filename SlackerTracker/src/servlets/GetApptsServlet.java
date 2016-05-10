@@ -48,6 +48,7 @@ public class GetApptsServlet extends HttpServlet
         String date;
 
         date = request.getParameter("date");
+        log.debug(date);
 
         if (date == null)
         {
@@ -85,7 +86,6 @@ public class GetApptsServlet extends HttpServlet
             out = response.getWriter();
             out.println(date);
             out.flush();
-
         }
     }
 }
