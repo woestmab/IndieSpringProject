@@ -2,8 +2,10 @@ package persistence;
 
 import entities.Appointment;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowCallbackHandler;
 
 import javax.sql.DataSource;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -42,7 +44,7 @@ public class AppointmentJDBCTemplate
 
     public List getApptsByDate(String date)
     {
-        List results;
+        ArrayList<Appointment> results;
         String sql;
         Object[] inputs;
 
@@ -51,7 +53,7 @@ public class AppointmentJDBCTemplate
 
         inputs = new Object[]{date};
 
-        results = jdbcTemplateObject.queryForList(sql, inputs);
+        results = (ArrayList<Appointment>) jdbcTemplateObject.query(sql, inputs, new AppointmentMapper());
 
         return results;
     }

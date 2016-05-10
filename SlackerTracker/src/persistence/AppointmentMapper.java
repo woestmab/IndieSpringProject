@@ -21,8 +21,8 @@ public class AppointmentMapper implements RowMapper
         appointment.setId(rs.getInt("id"));
         appointment.setLocationsId(rs.getInt("locations_id"));
         appointment.setTitle(rs.getString("title"));
-        appointment.setUrl(rs.getString("url"));
-        appointment.setApptClass(rs.getString("apptClass"));
+//        appointment.setUrl(rs.getString("url"));
+//        appointment.setApptClass(rs.getString("apptClass"));
         appointment.setStart(rs.getLong("start"));
         appointment.setEnd(rs.getLong("end"));
 

@@ -1,3 +1,4 @@
+import controllers.DailyRouteController;
 import entities.Appointment;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -19,6 +20,7 @@ public class TestsForDailyRouteController
     private static final Logger log = Logger.getLogger("slackerTracker");
     private static ApplicationContext context;
     private static AppointmentJDBCTemplate jdbc;
+    private static DailyRouteController drc;
 
     @Before
     public void init()
@@ -27,11 +29,12 @@ public class TestsForDailyRouteController
                 ("Beans.xml");
         jdbc = (AppointmentJDBCTemplate) context.getBean
                 ("appointmentJDBCTemplate");
+        drc = new DailyRouteController();
     }
 
     @Test
-    public void testCreateRecord()
+    public void testCreateRoute()
     {
-
+        drc.createRoute("2016-05-10");
     }
 }

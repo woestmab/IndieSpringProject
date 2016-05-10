@@ -6,10 +6,7 @@ import com.google.gson.GsonBuilder;
 import com.google.maps.GeoApiContext;
 import com.google.maps.model.DirectionsResult;
 import com.google.maps.model.DirectionsStep;
-import entities.Appointment;
-import entities.GoogleDirectionsResult;
-import entities.Location;
-import entities.Step;
+import entities.*;
 import org.apache.log4j.Logger;
 
 import java.io.BufferedReader;
@@ -163,12 +160,31 @@ public class GoogleDirectionsController
                 step.setTransitDetails(s.transit_details);
                 step.setHtmlInstructions(s.html_instructions);
                 steps.add(step);
-                return steps;
             }
+            return steps;
         } catch (Exception e)
         {
             System.out.println(e);
         }
         return null;
+    }
+
+    public ArrayList<Route> parseRouteInfo(ArrayList<Step> steps)
+    {
+        ArrayList<Route> routes = new ArrayList<>();
+
+        for (Step s : steps)
+        {
+            if (s.getTravelMode().equals("TRANSIT"))
+            {
+                Route r = new Route();
+                r.setBusDescription(s.getHtmlInstructions());
+                r.setBusNumber(s.getTransitDetails().line.short_name);
+                r.setStopLocation(s.getTransitDetails().departure_stop.name);
+                r.setDepartureTime(s.getTransitDetails().departure_time.text);
+                routes.add(r);
+            }
+        }
+        return routes;
     }
 }

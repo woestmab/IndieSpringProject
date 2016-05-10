@@ -13,7 +13,7 @@
         var routeTab = $('#route-tab');
         var routeBtn = $('#route-btn');
 
-        backButton.onclick = calendar;
+        backButton.click(calendar);
 
         function calendar()
         {

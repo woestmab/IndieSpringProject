@@ -12,6 +12,7 @@ public class Appointment implements Form
     // TODO: 5/8/16 transients won't be serialized and converted to json
     private Integer id;
     private transient Integer locationsId;
+    private transient Location location;
 
     private String title;
 
@@ -67,6 +68,16 @@ public class Appointment implements Form
     public void setLocationsId(Integer locationsId)
     {
         this.locationsId = locationsId;
+    }
+
+    public Location getLocation()
+    {
+        return location;
+    }
+
+    public void setLocation(Location location)
+    {
+        this.location = location;
     }
 
     /**

@@ -1,6 +1,7 @@
 import controllers.GoogleDirectionsController;
 import entities.Appointment;
 import entities.Location;
+import entities.Step;
 import org.apache.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,10 +10,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import persistence.AppointmentJDBCTemplate;
 import persistence.LocationJDBCTemplate;
 
+import java.util.ArrayList;
+
 /**
  * Created by Bdub on 5/5/16.
  */
-public class TestsForGoogleController
+public class TestsForGoogleDirectionsController
 {
     private static final Logger log = Logger.getLogger("slackerTracker");
     private static GoogleDirectionsController gdc;
@@ -43,7 +46,7 @@ public class TestsForGoogleController
         dest.setState("Wisconsin");
         dest.setZip(53704);
 
-        appt.setStart(1462894200000L);
+        appt.setStart(1462901400000L);
     }
 
     @Test
@@ -55,7 +58,14 @@ public class TestsForGoogleController
     @Test
     public void testForGetRoute()
     {
-        gdc.getRoute(origin, dest, appt);
+        ArrayList<Step> steps = gdc.getRoute(origin, dest, appt);
+        log.debug(steps.toString());
     }
 
+    @Test
+    public void testForParseRouteInfo()
+    {
+        ArrayList<Step> steps = gdc.getRoute(origin, dest, appt);
+        gdc.parseRouteInfo(steps);
+    }
 }
