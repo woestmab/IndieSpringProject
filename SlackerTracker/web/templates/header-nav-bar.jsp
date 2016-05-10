@@ -12,8 +12,8 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Calendar</a></li>
-          <li><a href=""></a></li>
+          <li class="active"><a href="1">Calendar</a></li>
+          <li><a href="2"></a></li>
           <%----%>
           <%--<li><a href="https://www.google.com/maps" target="blank">Google Maps--%>
             <%--Maps</a></li>--%>
@@ -25,7 +25,7 @@
 
           </span> Sign Up</a>
           </li>
-          <li><a href="../secure/secure-test.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+          <li><a href="${pageContext.request.contextPath}/secure/secure-test.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a>
           </li>
         </ul>
       </div>

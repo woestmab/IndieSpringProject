@@ -9,28 +9,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
   <head>
-    <title>Welcome to the Slacker Tracker!</title>
+    <title>Slacker Tracker</title>
     <c:import url="templates/head-links.jsp"/>
   </head>
   <body>
     <c:import url="templates/header-nav-bar.jsp"/>
     <input type="button" class="btn btn-default" id="backButton" value="Back">
     <div id="calendar"></div>
-    <script type="text/javascript">
-
-      calendar();
-
-      var backButton = document.getElementById('backButton');
-      backButton.onclick = calendar;
-
-      function calendar() {
-        var calendar = $("#calendar").calendar(
-            {
-              tmpl_path: "tmpls/",
-              events_source: "/get-appts"
-            });
-      }
-    </script>
     <!-- Button trigger modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal"
             data-target="#addAppointmentModal-page1">
