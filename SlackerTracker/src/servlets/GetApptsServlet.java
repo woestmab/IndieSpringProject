@@ -78,8 +78,6 @@ public class GetApptsServlet extends HttpServlet
             response.setContentType("application/json");
             out.print(json);
             out.flush();
-
-            //response.sendRedirect("index.jsp");
         }
         else if (val.validDate(date))
         {

@@ -101,7 +101,8 @@ public class MakeAppointmentServlet extends HttpServlet
                 }
                 else
                 {
-
+                    appt.setLocationsId((Integer) locResults.get(0));
+                    apptJDBC.insert(appt);
                 }
             }
             // TODO: 5/8/16 error message

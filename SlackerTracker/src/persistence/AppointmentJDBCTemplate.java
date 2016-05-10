@@ -42,6 +42,17 @@ public class AppointmentJDBCTemplate
 
     public List getApptsByDate(String date)
     {
-        return null;
+        List results;
+        String sql;
+        Object[] inputs;
+
+        sql = "SELECT id, locations_id, title, start, end FROM appointments WHERE " +
+                "date = ?";
+
+        inputs = new Object[]{date};
+
+        results = jdbcTemplateObject.queryForList(sql, inputs);
+
+        return results;
     }
 }

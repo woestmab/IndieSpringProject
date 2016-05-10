@@ -46,8 +46,8 @@
             $.get(url, function (data)
             {
                 
-            })
-        })
+            });
+        });
 
     });
 })

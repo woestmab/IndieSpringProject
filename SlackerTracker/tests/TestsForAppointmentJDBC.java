@@ -20,12 +20,15 @@ public class TestsForAppointmentJDBC
 {
     private static final Logger log = Logger.getLogger("slackerTracker");
     private static ApplicationContext context;
-    private static AppointmentJDBCTemplate appointmentJDBCTemplate;
+    private static AppointmentJDBCTemplate jdbc;
 
     @Before
     public void init()
     {
-
+        context = new ClassPathXmlApplicationContext
+            ("Beans.xml");
+        jdbc = (AppointmentJDBCTemplate) context.getBean
+            ("appointmentJDBCTemplate");
     }
 
     @Test
@@ -51,13 +54,8 @@ public class TestsForAppointmentJDBC
         appt.setStart(start);
         appt.setEnd(end);
 
-        ApplicationContext context = new ClassPathXmlApplicationContext
-                ("Beans.xml");
-        AppointmentJDBCTemplate appointmentJDBCTemplate = (AppointmentJDBCTemplate) context.getBean
-                ("appointmentJDBCTemplate");
-
-        appointmentJDBCTemplate.insert(appt);
-        List<Appointment> appts = appointmentJDBCTemplate.getAllAppointments();
+        jdbc.insert(appt);
+        List<Appointment> appts = jdbc.getAllAppointments();
 
         assertTrue(appts.size() > 0);
     }
@@ -66,5 +64,15 @@ public class TestsForAppointmentJDBC
     public void testSelectAll()
     {
 
+    }
+
+    @Test
+    public void testGetAppointmentsByDate()
+    {
+        String date;
+        List results;
+        date = "2016-05-10";
+
+        results = jdbc.getApptsByDate(date);
     }
 }

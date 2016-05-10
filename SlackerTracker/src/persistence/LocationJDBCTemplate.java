@@ -102,7 +102,7 @@ public class LocationJDBCTemplate
         inputs = new Object[]{loc.getStreetNumber(), loc.getStreetName(), loc.getCity(),
                 loc.getState(), loc.getZip()};
 
-        results = jdbcTemplateObject.queryForList(sql, inputs);
+        results = jdbcTemplateObject.queryForList(sql, inputs, Integer.class);
 
         return results;
     }
