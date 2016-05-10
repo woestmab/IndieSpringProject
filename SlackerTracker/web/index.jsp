@@ -15,19 +15,8 @@
   <body>
     <c:import url="${pageContext.request.contextPath}/templates/header-nav-bar.jsp"/>
 
-    <div id="cal-div">
-      <input type="button" class="btn btn-default" id="backButton" value="Back">
-      <div id="calendar"></div>
-      <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal"
-              data-target="#addAppointmentModal-page1">
-        Add Appointment
-      </button>
-    </div>
-
-    <div id="route-div">
-      <h1>Test</h1>
-    </div>
+    <c:import url="${pageContext.request.contextPath}/templates/cal-div.jsp"/>
+    <c:import url="${pageContext.request.contextPath}/templates/route-div.jsp"/>
 
     <!-- Modal -->
     <div class="modal fade" id="addAppointmentModal-page1" tabindex="-1" role="dialog"
