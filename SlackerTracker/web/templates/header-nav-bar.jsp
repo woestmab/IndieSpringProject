@@ -12,8 +12,8 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="1">Calendar</a></li>
-          <li><a href="2"></a></li>
+          <li class="active"><a id="cal-tab" href="#">Calendar</a></li>
+          <li><a id="route-tab" href="#">Daily Routes</a></li>
           <%----%>
           <%--<li><a href="https://www.google.com/maps" target="blank">Google Maps--%>
             <%--Maps</a></li>--%>

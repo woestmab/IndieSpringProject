@@ -8,6 +8,8 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/flat-ui.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/calendar.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+
 <link rel="stylesheet" href="${pageContext.request.contextPath}/fonts/glyphicons-halflings-regular.svg">
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.min.js"></script>

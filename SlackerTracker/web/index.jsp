@@ -14,13 +14,20 @@
   </head>
   <body>
     <c:import url="${pageContext.request.contextPath}/templates/header-nav-bar.jsp"/>
-    <input type="button" class="btn btn-default" id="backButton" value="Back">
-    <div id="calendar"></div>
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal"
-            data-target="#addAppointmentModal-page1">
-      Add Appointment
-    </button>
+
+    <div id="cal-div">
+      <input type="button" class="btn btn-default" id="backButton" value="Back">
+      <div id="calendar"></div>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal"
+              data-target="#addAppointmentModal-page1">
+        Add Appointment
+      </button>
+    </div>
+
+    <div id="route-div">
+      <h1>Test</h1>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="addAppointmentModal-page1" tabindex="-1" role="dialog"
@@ -36,8 +43,10 @@
           <div class="modal-body">
             <form action="make-appt" method="post">
               <div id="locationForm">
-                <c:import url="${pageContext.request.contextPath}/templates/location-form-fragment.jsp"/>
-                <c:import url="${pageContext.request.contextPath}/templates/appointment-form-fragment.jsp"/>
+                <c:import
+                    url="${pageContext.request.contextPath}/templates/location-form-fragment.jsp"/>
+                <c:import
+                    url="${pageContext.request.contextPath}/templates/appointment-form-fragment.jsp"/>
               </div>
               <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel
               </button>

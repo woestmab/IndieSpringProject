@@ -8,7 +8,10 @@
     {
         calendar();
 
-        var backButton = document.getElementById('backButton');
+        var backButton = $('#backButton');
+        var calTab = $('#cal-tab');
+        var routeTab = $('#route-tab');
+
         backButton.onclick = calendar;
 
         function calendar()
@@ -19,6 +22,19 @@
                     events_source: "/get-appts"
                 });
         }
+
+        calTab.click(function ()
+        {
+            $('#cal-div').show();
+            $('#route-div').hide();
+        });
+
+        routeTab.click(function ()
+        {
+            $('#route-div').show();
+            $('#cal-div').hide();
+        })
+
     });
 })
 (jQuery);
