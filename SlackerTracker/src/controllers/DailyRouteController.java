@@ -66,9 +66,6 @@ public class DailyRouteController
             else if ((i <= appts.size() - 1) &&
                     (appts.get(i).getLocation().getId() != appts.get(i - 1).getLocation().getId()))
             {
-                //log.debug("location 1 " + appts.get(i-1).getLocation().getId());
-                //log.debug("location 2 " + appts.get(i).getLocation().getId());
-
                 ArrayList<Route> tempTrip = gdc.parseRouteInfo(gdc.getRoute(appts.get(i-1).getLocation(),
                         appts.get(i).getLocation(), appts.get(i), false));
 

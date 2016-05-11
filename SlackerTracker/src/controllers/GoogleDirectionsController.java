@@ -1,11 +1,8 @@
 package controllers;
 
-import com.google.common.base.CaseFormat;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.maps.GeoApiContext;
-import com.google.maps.model.DirectionsResult;
-import com.google.maps.model.DirectionsStep;
 import entities.*;
 import org.apache.log4j.Logger;
 
@@ -14,7 +11,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 /**
  * Created by Bdub on 2/19/16.
@@ -182,7 +178,7 @@ public class GoogleDirectionsController
             if (s.getTravelMode().equals("TRANSIT"))
             {
                 Route r = new Route();
-                r.setBusDescription(s.getHtmlInstructions());
+                r.setDepartureStop(s.getHtmlInstructions());
                 r.setBusNumber(s.getTransitDetails().line.short_name);
                 r.setStopLocation(s.getTransitDetails().departure_stop.name);
                 r.setDepartureTime(s.getTransitDetails().departure_time.text);

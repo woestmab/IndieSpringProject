@@ -6,7 +6,9 @@ package entities;
 public class Route
 {
     private String busNumber;
-    private String busDescription;
+    private String arrivalStop;
+    private String departureStop;
+    private String arrivalTime;
     private String departureTime;
     private String stopLocation;
 
@@ -20,14 +22,34 @@ public class Route
         this.busNumber = busNumber;
     }
 
-    public String getBusDescription()
+    public String getArrivalStop()
     {
-        return busDescription;
+        return arrivalStop;
     }
 
-    public void setBusDescription(String busDescription)
+    public void setArrivalStop(String arrivalStop)
     {
-        this.busDescription = busDescription;
+        this.arrivalStop = arrivalStop;
+    }
+
+    public String getDepartureStop()
+    {
+        return departureStop;
+    }
+
+    public void setDepartureStop(String departureStop)
+    {
+        this.departureStop = departureStop;
+    }
+
+    public String getArrivalTime()
+    {
+        return arrivalTime;
+    }
+
+    public void setArrivalTime(String arrivalTime)
+    {
+        this.arrivalTime = arrivalTime;
     }
 
     public String getDepartureTime()
