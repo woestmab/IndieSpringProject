@@ -180,6 +180,8 @@ public class GoogleDirectionsController
                 Route r = new Route();
                 r.setDepartureStop(s.getHtmlInstructions());
                 r.setBusNumber(s.getTransitDetails().line.short_name);
+                r.setArrivalTime(s.getTransitDetails().arrival_time.text);
+                r.setArrivalStop(s.getTransitDetails().arrival_stop.name);
                 r.setStopLocation(s.getTransitDetails().departure_stop.name);
                 r.setDepartureTime(s.getTransitDetails().departure_time.text);
                 routes.add(r);

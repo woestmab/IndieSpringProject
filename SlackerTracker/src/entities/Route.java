@@ -6,11 +6,11 @@ package entities;
 public class Route
 {
     private String busNumber;
-    private String arrivalStop;
-    private String departureStop;
-    private String arrivalTime;
-    private String departureTime;
     private String stopLocation;
+    private String departureStop;
+    private String departureTime;
+    private String arrivalStop;
+    private String arrivalTime;
 
     public String getBusNumber()
     {

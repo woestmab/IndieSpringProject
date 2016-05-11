@@ -27,6 +27,12 @@ public class DailyRouteController
 
     private ArrayList<Appointment> appts;
     private ArrayList<Location> locs;
+    private ArrayList<ArrayList<Route>> trips;
+
+    public ArrayList<ArrayList<Route>> getTrips()
+    {
+        return trips;
+    }
 
     public String createRoute(String date)
     {
@@ -52,7 +58,7 @@ public class DailyRouteController
     private void queryGoogleTransit()
     {
         Location home = locJDBC.getLocation(103);
-        ArrayList<ArrayList<Route>> trips = new ArrayList<>();
+        trips = new ArrayList<>();
         GoogleDirectionsController gdc = new GoogleDirectionsController();
 
         for (int i = 0; i < appts.size(); i++)

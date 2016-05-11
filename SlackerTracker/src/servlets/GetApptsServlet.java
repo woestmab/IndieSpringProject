@@ -3,8 +3,11 @@ package servlets;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import controllers.DailyRouteController;
+import controllers.GoogleDirectionsController;
 import entities.Appointment;
 import entities.Location;
+import entities.Route;
 import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -46,6 +49,7 @@ public class GetApptsServlet extends HttpServlet
         Validator val = new Validator();
         PrintWriter out;
         String date;
+        Gson gson;
 
         date = request.getParameter("date");
         log.debug(date);
@@ -55,7 +59,6 @@ public class GetApptsServlet extends HttpServlet
             ApplicationContext context;
             AppointmentJDBCTemplate apptJDBC;
             ArrayList<Appointment> appointments;
-            Gson gson;
             String json;
 
             context = new ClassPathXmlApplicationContext("Beans.xml");
@@ -81,8 +84,24 @@ public class GetApptsServlet extends HttpServlet
         }
         else if (val.validDate(date))
         {
+            DailyRouteController drc;
+            ArrayList<ArrayList<Route>> trips;
+            String json;
+
+            drc = new DailyRouteController();
+            drc.createRoute(date);
+            gson = new GsonBuilder()
+                .disableHtmlEscaping()
+                .setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_DASHES)
+                .setPrettyPrinting()
+                .serializeNulls()
+                .create();
+
+            trips = drc.getTrips();
+            json = gson.toJson(trips);
+
             out = response.getWriter();
-            out.println(date);
+            out.println(json);
             out.flush();
         }
     }
