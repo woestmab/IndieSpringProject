@@ -14,7 +14,11 @@
     <input id="route-date-input" type="date">
     <button id="route-btn">Get my routes</button>
   </div>
+
   <div id="route-results-div">
+    <div id="wait">
+      <img src="${pageContext.request.contextPath}/img/ajax-loader.gif" alt="Wait">
+    </div>
 
   </div>
 </div>
