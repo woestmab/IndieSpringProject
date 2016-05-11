@@ -49,7 +49,7 @@ public class AppointmentJDBCTemplate
         Object[] inputs;
 
         sql = "SELECT id, locations_id, title, start, end FROM appointments WHERE " +
-                "date = ?";
+                "date = ? ORDER BY start ASC";
 
         inputs = new Object[]{date};
 

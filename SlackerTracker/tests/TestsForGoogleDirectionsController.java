@@ -49,23 +49,23 @@ public class TestsForGoogleDirectionsController
         appt.setStart(1462901400000L);
     }
 
-    @Test
-    public void testRun()
-    {
-        gdc.run();
-    }
+//    @Test
+//    public void testRun()
+//    {
+//        gdc.run();
+//    }
 
     @Test
     public void testForGetRoute()
     {
-        ArrayList<Step> steps = gdc.getRoute(origin, dest, appt);
+        ArrayList<Step> steps = gdc.getRoute(origin, dest, appt, false);
         log.debug(steps.toString());
     }
 
     @Test
     public void testForParseRouteInfo()
     {
-        ArrayList<Step> steps = gdc.getRoute(origin, dest, appt);
+        ArrayList<Step> steps = gdc.getRoute(origin, dest, appt, false);
         gdc.parseRouteInfo(steps);
     }
 }
