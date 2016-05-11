@@ -45,7 +45,19 @@
 
             $.get(url, function (data)
             {
-                
+                var json = $.parseJSON(data);
+                var trips = [];
+                var rides = [];
+
+                json.forEach(function (e)
+                {
+                    trips.push(e);
+                });
+
+                trips.forEach(function (e)
+                {
+                    rides.push(e[0]);
+                });
             });
         });
 
