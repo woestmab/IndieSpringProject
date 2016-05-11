@@ -10,7 +10,7 @@
 <html>
   <head>
     <title>Login Error</title>
-    <c:import url="../templates/head-links.jsp" />
+    <c:import url="${pageContext.request.contextPath}/templates/head-links.jsp" />
   </head>
   <body>
     <h1>There was an error logging you in.</h1>
