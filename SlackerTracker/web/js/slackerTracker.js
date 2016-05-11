@@ -55,36 +55,48 @@
 
             $.get(url, function (data)
             {
-                var json = $.parseJSON(data);
-                var trips = [];
-                var table = $('<table id="result-table" class="table table-bordered">');
-                var thead = $('<thead><tr><th>Bus Number</th><th>Departure Time</th><th>Departure Stop</th>" + ' +
-                    '"<th>Stop Location</th><th>Arrival Time</th><th>Arrival Stop</th></tr></thead>');
-                var tbody = $('<tbody>');
-
-                $('#route-results-div').append(table);
-                $('#result-table').append(thead);
-                $('#result-table').append(tbody);
-
-                json.forEach(function (e)
-                {
-                    trips.push(e);
-                });
-
-                trips.forEach(function (t)
-                {
-                    t.forEach(function (r)
-                    {
-                        $('#result-table tbody').append('<tr><td>'+ r["bus-number"] + '</td><td>' +
-                            r["departure-time"] + '</td><td>'+ r["departure-stop"] + '</td><td>'+
-                            r["stop-location"] + '</td><td>'+ r["arrival-time"] + '</td><td>'+
-                            r["arrival-stop"] + '</td></tr>');
-                        console.log(r);
-                    });
-                });
+                refreshTable();
+                addTable(data);
             });
         });
 
     });
 })
 (jQuery);
+
+function addTable(data)
+{
+    var json = $.parseJSON(data);
+
+    var trips = [];
+    var table = $('<table id="result-table" class="table table-bordered">');
+    var thead = $('<thead><tr><th>Bus Number</th><th>Departure Time</th><th>Departure Stop</th>" + ' +
+        '"<th>Stop Location</th><th>Arrival Time</th><th>Arrival Stop</th></tr></thead>');
+    var tbody = $('<tbody>');
+
+    $('#route-results-div').append(table);
+    $('#result-table').append(thead);
+    $('#result-table').append(tbody);
+
+    json.forEach(function (e)
+    {
+        trips.push(e);
+    });
+
+    trips.forEach(function (t)
+    {
+        t.forEach(function (r)
+        {
+            $('#result-table tbody').append('<tr><td>'+ r["bus-number"] + '</td><td>' +
+                r["departure-time"] + '</td><td>'+ r["departure-stop"] + '</td><td>'+
+                r["stop-location"] + '</td><td>'+ r["arrival-time"] + '</td><td>'+
+                r["arrival-stop"] + '</td></tr>');
+            console.log(r);
+        });
+    });
+}
+
+function refreshTable()
+{
+    $('#result-table').remove();
+}
