@@ -14,18 +14,13 @@
         <ul class="nav navbar-nav">
           <li id="cal-li" class="active"><a id="cal-tab" href="#">Calendar</a></li>
           <li id="route-li"><a id="route-tab" href="#">Daily Routes</a></li>
-          <%----%>
-          <%--<li><a href="https://www.google.com/maps" target="blank">Google Maps--%>
-          <%--Maps</a></li>--%>
-          <%--<li><a href="http://www.cityofmadison.com/metro/" target="blank">Madison Metro</a></li>--%>
         </ul>
         <ul class="nav navbar-nav navbar-right">
 
           <li>
             <a href="#" class="" data-toggle="modal"
                     data-target="#addAppointmentModal-page1">
-              <span class="glyphicon glyphicon-calendar"></span>
-              Appointment
+              <span class="glyphicon glyphicon-calendar"></span> Add Appointment
             </a>
           </li>
           <li>

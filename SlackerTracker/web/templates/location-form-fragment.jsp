@@ -16,8 +16,8 @@
   <div class="form-group">
     <label class="col-md-4 control-label" for="streetNumber">Street Number:</label>
     <div class="col-md-6">
-      <input id="streetNumber" name="streetNumber" type="text" placeholder="Street Number" class="form-control input-md" ="">
-
+      <input id="streetNumber" name="streetNumber" type="text" placeholder="Street Number"
+             class="form-control input-md" required>
     </div>
   </div>
 
@@ -25,7 +25,8 @@
   <div class="form-group">
     <label class="col-md-4 control-label" for="streetName">Street Name:</label>
     <div class="col-md-6">
-      <input id="streetName" name="streetName" type="text" placeholder="Street Name" class="form-control input-md" ="">
+      <input id="streetName" name="streetName" type="text" placeholder="Street Name"
+             class="form-control input-md" required>
 
     </div>
   </div>
@@ -34,8 +35,8 @@
   <div class="form-group">
     <label class="col-md-4 control-label" for="city">City:</label>
     <div class="col-md-6">
-      <input id="city" name="city" type="text" placeholder="City" class="form-control input-md">
-
+      <input id="city" name="city" type="text" placeholder="City"
+             class="form-control input-md" required>
     </div>
   </div>
 
@@ -43,8 +44,8 @@
   <div class="form-group">
     <label class="col-md-4 control-label" for="state">State:</label>
     <div class="col-md-6">
-      <input id="state" name="state" type="text" placeholder="State" class="form-control input-md">
-
+      <input id="state" name="state" type="text" placeholder="State"
+             class="form-control input-md" required>
     </div>
   </div>
 
@@ -52,7 +53,8 @@
   <div class="form-group">
     <label class="col-md-4 control-label" for="zip">Zip Code:</label>
     <div class="col-md-6">
-      <input id="zip" name="zip" type="number" placeholder="Zip code" class="form-control input-md">
+      <input id="zip" name="zip" type="number" placeholder="Zip code"
+             class="form-control input-md" required>
 
     </div>
   </div>
