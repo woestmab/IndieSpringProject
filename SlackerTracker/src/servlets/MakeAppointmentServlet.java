@@ -109,7 +109,7 @@ public class MakeAppointmentServlet extends HttpServlet
         }
         // TODO: 5/8/16 error message
 
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("user-page.jsp");
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

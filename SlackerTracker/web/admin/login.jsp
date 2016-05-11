@@ -11,9 +11,18 @@
   <head>
     <title>Login</title>
     <c:import url="${pageContext.request.contextPath}/templates/head-links.jsp"/>
+    <c:import url="${pageContext.request.contextPath}/templates/header-nav-bar.jsp"/>
   </head>
-  <body>
-    <h1 class="col-sm-offset-2">Please login to continue</h1>
+  <body class="body-unsecure">
+    <h1 class="text-center h1-absolute">Login or sign up</h1>
     <c:import url="${pageContext.request.contextPath}/templates/login-form.jsp"/>
+
+    <video autoplay="" loop="" class="fillWidth fadeIn animated"
+           poster="https://s3-us-west-2.amazonaws.com/coverr/poster/Traffic-blurred2.jpg"
+           id="video-background">
+      <source src="https://s3-us-west-2.amazonaws.com/coverr/mp4/Traffic-blurred2.mp4"
+              type="video/mp4">
+      Your browser does not support the video tag. I suggest you upgrade your browser.
+    </video>
   </body>
 </html>

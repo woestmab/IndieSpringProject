@@ -38,12 +38,17 @@
         {
             $('#cal-div').show();
             $('#route-div').hide();
+            $('#cal-li').addClass("active");
+            $('#route-li').removeClass("active");
+            calendar();
         });
 
         routeTab.click(function ()
         {
             $('#route-div').show();
             $('#cal-div').hide();
+            $('#route-li').addClass("active");
+            $('#cal-li').removeClass("active");
         });
 
         routeBtn.click(function ()
