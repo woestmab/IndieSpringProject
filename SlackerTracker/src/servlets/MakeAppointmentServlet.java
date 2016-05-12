@@ -30,7 +30,7 @@ import java.util.List;
 
 public class MakeAppointmentServlet extends HttpServlet
 {
-    private static Logger log = Logger.getLogger("servlets.MakeLocationServlet");
+    private static Logger log = Logger.getLogger("servlets.MakeAppointmentServlet");
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
     {

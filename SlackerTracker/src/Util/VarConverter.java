@@ -14,7 +14,7 @@ import java.util.Locale;
  */
 public class VarConverter
 {
-    private static Logger log = Logger.getLogger("servlets.MakeLocationServlet");
+    private static Logger log = Logger.getLogger("servlets.VarConverter");
 
     public LocalDate stringToLocalDate(String dateInput)
     {

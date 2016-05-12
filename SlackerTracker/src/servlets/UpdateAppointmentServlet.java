@@ -26,13 +26,12 @@
 // */
 //
 //@WebServlet(
-//        name = "getApptsServlet",
-//        urlPatterns = "/update-appts"
+//        name = "updateApptServlet",
+//        urlPatterns = "/update-appt"
 //)
 //
 //public class UpdateAppointmentServlet extends HttpServlet
 //{
-//    private static Logger log = Logger.getLogger("servlets.MakeLocationServlet");
 //
 //    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 //    {

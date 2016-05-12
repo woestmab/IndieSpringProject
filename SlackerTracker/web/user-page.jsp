@@ -47,5 +47,37 @@
         </div>
       </div>
     </div>
+
+    <div class="modal fade" id="editAppointmentModal-page1" tabindex="-1" role="dialog"
+         aria-labelledby="addAppointmentModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="editAppointmentModalLabel">Edit Appointment</h4>
+          </div>
+
+          <div class="modal-body">
+            <form action="update-appt" method="post">
+              <div id="editForms">
+                <c:import
+                    url="${pageContext.request.contextPath}/templates/location-form-fragment.jsp"/>
+                <c:import
+                    url="${pageContext.request.contextPath}/templates/appointment-form-fragment.jsp"/>
+              </div>
+              <button id="delete-button" type="button" class="btn btn-danger"
+                      data-dismiss="modal">Delete
+              </button>
+              <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel
+              </button>
+              <input type="submit" class="btn btn-success" value="submit" name="submit">
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
   </body>
 </html>

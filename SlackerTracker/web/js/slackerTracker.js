@@ -39,6 +39,7 @@
         {
             $('#cal-div').show();
             $('#route-div').hide();
+            $('#edit-div').hide();
             $('#cal-li').addClass("active");
             $('#route-li').removeClass("active");
             $('#edit-li').removeClass("active");
@@ -93,7 +94,13 @@
 
         $('body').on('click', 'table > tbody > tr', function (e)
         {
-            console.log(this.id);
+            var url = '/get-appts?id=' + this.id;
+            // console.log(this.id);
+            $.get(url, function (data)
+            {
+                console.log(data);
+                $('#edit-modal-link').click();
+            })
         });
 
     });
@@ -105,7 +112,7 @@ function addRouteTable(data)
     var json = $.parseJSON(data);
 
     var trips = [];
-    var table = $('<table id="result-table" class="table table-bordered">');
+    var table = $('<table id="result-table" class="table table-bordered table-striped table-hover">');
     var thead = $('<thead><tr><th>Bus Number</th><th>Departure Time</th><th>Departure Stop</th>" + ' +
         '"<th>Stop Location</th><th>Arrival Time</th><th>Arrival Stop</th></tr></thead>');
     var tbody = $('<tbody>');

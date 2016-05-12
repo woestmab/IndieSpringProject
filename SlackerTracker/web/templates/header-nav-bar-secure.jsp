@@ -23,6 +23,9 @@
                     data-target="#addAppointmentModal-page1">
               <span class="glyphicon glyphicon-calendar"></span> Add Appointment
             </a>
+            <a id="edit-modal-link" href="#" class="hidden" data-toggle="modal"
+                    data-target="#editAppointmentModal-page1">
+            </a>
           </li>
           <li>
             <a href="#"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
