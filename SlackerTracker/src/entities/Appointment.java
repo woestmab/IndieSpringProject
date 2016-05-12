@@ -9,7 +9,6 @@ public class Appointment implements Form
 {
     private static final String type = "Appointment";
 
-    // TODO: 5/8/16 transients won't be serialized and converted to json
     private Integer id;
     private transient Integer locationsId;
     private transient Location location;

@@ -17,88 +17,35 @@ import java.util.ArrayList;
  */
 public class GoogleDirectionsController
 {
+    private Singleton singleton;
     private static final Logger log = Logger.getLogger("controllers.GoogleDirectionsController");
-    private static final String GOOGLE_API_KEY = "AIzaSyBKXLe2ChocA8-es3OiIGlKcPnFtELUBH4\t\n";
-    private static final String USER_AGENT = "Mozilla/5.0";
 
-//    public void run()
-//    {
-//        //get context
-//        GeoApiContext geoApiContext = new GeoApiContext();
-//        Gson gson = new GsonBuilder().create();
-//
-//        //server key
-//        geoApiContext.setApiKey(GOOGLE_API_KEY);
-//
-//        //test addresses
-//        String origin = "26+RIDGEVIEW+COURT+MADISON+WI+53704";
-//        String destination = "1701+WRIGHT+STREET+MADISON+WI+53704";
-//        String mode = "transit";
-//        String arrivalTime = "1462887000000";
-//
-//
-//        // TODO: 5/5/16 properties file
-//        String url = "http://maps.googleapis" +
-//                ".com/maps/api/directions/json?sensor=false&origin=" + origin
-//                + "&destination=" + destination + "&mode=" + mode + "&arrival_time=" +
-//                arrivalTime;
-//
-//        try
-//        {
-//            URL obj = new URL(url);
-//
-//            HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-//
-//            con.setRequestMethod("GET");
-//            con.setRequestProperty("User-Agent", USER_AGENT);
-//
-//            int responseCode = con.getResponseCode();
-//            log.info("\nSending 'GET' request to URL: " + url);
-//            log.info("Response Code: " + responseCode);
-//
-//            BufferedReader in = new BufferedReader(new InputStreamReader(con
-//                    .getInputStream()));
-//            String inputLine;
-//            StringBuffer response = new StringBuffer();
-//
-//            while ((inputLine = in.readLine()) != null)
-//            {
-//                response.append(inputLine);
-//            }
-//            in.close();
-//
-//            GoogleDirectionsResult googleDirectionsResult = gson.fromJson(String.valueOf(response),
-//                    GoogleDirectionsResult.class);
-//
-//            ArrayList<Step> steps = new ArrayList<>();
-//
-//            for (GoogleDirectionsResult.Routes.Legs.Steps s : googleDirectionsResult.routes[0].legs[0].steps)
-//            {
-//                Step step = new Step();
-//                step.setTravelMode(s.travel_mode);
-//                step.setTransitDetails(s.transit_details);
-//                step.setHtmlInstructions(s.html_instructions);
-//                steps.add(step);
-//            }
-//        } catch (Exception e)
-//        {
-//            System.out.println(e);
-//        }
-//    }
+    private String googleApiKey;
+    private String userAgent;
+    private String googleDirectionsUrl;
+
+    public GoogleDirectionsController(){
+        singleton = Singleton.getInstance();
+    }
 
     public ArrayList<Step> getRoute(Location origin, Location dest, Appointment appt, boolean lastTrip)
     {
+        googleApiKey = singleton.getProperties().getProperty("google.api.key");
+        userAgent = singleton.getProperties().getProperty("user.agent");
+        googleDirectionsUrl = singleton.getProperties().getProperty("google.directions.url");
+
+        String originString;
+        String destinationString;
+        String travelTime;
+        String url;
+        String mode = "transit";
+
         //get context
         GeoApiContext geoApiContext = new GeoApiContext();
         Gson gson = new GsonBuilder().create();
 
         //server key
-        geoApiContext.setApiKey(GOOGLE_API_KEY);
-
-        String originString;
-        String destinationString;
-        String travelTime;
-        String mode = "transit";
+        geoApiContext.setApiKey(googleApiKey);
 
         originString = origin.getStreetNumber() + "+" + origin.getStreetName() + "+" +
                 origin.getCity() + "+" + origin.getState() + "+" + origin.getZip();
@@ -118,9 +65,7 @@ public class GoogleDirectionsController
             travelTime = "&arrival_time=" + Long.toString(appt.getStart()/1000);
         }
 
-        // TODO: 5/5/16 properties file
-        String url = "http://maps.googleapis" +
-                ".com/maps/api/directions/json?sensor=false&origin=" + originString
+        url = googleDirectionsUrl + originString
                 + "&destination=" + destinationString + travelTime +
                 "&mode=" + mode;
 
@@ -131,7 +76,7 @@ public class GoogleDirectionsController
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
 
             con.setRequestMethod("GET");
-            con.setRequestProperty("User-Agent", USER_AGENT);
+            con.setRequestProperty("User-Agent", userAgent);
 
             int responseCode = con.getResponseCode();
             log.info("\nSending 'GET' request to URL: " + url);
