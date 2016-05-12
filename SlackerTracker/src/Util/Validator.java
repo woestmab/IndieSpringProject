@@ -8,10 +8,16 @@ import java.util.ArrayList;
 
 /**
  * Created by Bdub on 5/6/16.
+ * this class is used to validate forms
  */
-
 public class Validator
 {
+    /**
+     * Valid form boolean.
+     *
+     * @param form the form
+     * @return the boolean
+     */
     public boolean validForm(Form form)
     {
         switch (form.getType())
@@ -25,8 +31,12 @@ public class Validator
         }
     }
 
-    //appointment validation methods
-
+    /**
+     * Valid appointment boolean.
+     *
+     * @param appt the appt
+     * @return the boolean
+     */
     public boolean validAppointment(Appointment appt)
     {
         if (!validString(appt.getTitle())) return false;
@@ -37,11 +47,23 @@ public class Validator
         return true;
     }
 
+    /**
+     * Valid time boolean.
+     *
+     * @param time the time
+     * @return the boolean
+     */
     public boolean validTime(long time)
     {
         return time > 0;
     }
 
+    /**
+     * Valid date boolean.
+     *
+     * @param date the date
+     * @return the boolean
+     */
     public boolean validDate(String date)
     {
         return date.matches("\\d{4}[-]\\d{2}[-]\\d{2}");
@@ -49,6 +71,12 @@ public class Validator
 
     //location validation methods
 
+    /**
+     * Valid location boolean.
+     *
+     * @param loc the loc
+     * @return the boolean
+     */
     public boolean validLocation(Location loc)
     {
         if (!validStreetNumber(loc.getStreetNumber())) return false;
@@ -59,11 +87,23 @@ public class Validator
         return true;
     }
 
+    /**
+     * Valid street number boolean.
+     *
+     * @param streetNumber the street number
+     * @return the boolean
+     */
     public boolean validStreetNumber(int streetNumber)
     {
         return streetNumber > 0;
     }
 
+    /**
+     * Valid zip boolean.
+     *
+     * @param input the input
+     * @return the boolean
+     */
     public boolean validZip(int input)
     {
         return input > 9999;
@@ -71,6 +111,12 @@ public class Validator
 
     //shared validation methods
 
+    /**
+     * Valid string boolean.
+     *
+     * @param input the input
+     * @return the boolean
+     */
     public boolean validString(String input)
     {
         if (input != null)
@@ -81,6 +127,12 @@ public class Validator
         return false;
     }
 
+    /**
+     * Is empty boolean.
+     *
+     * @param inputs the inputs
+     * @return the boolean
+     */
     public boolean isEmpty(ArrayList<String> inputs)
     {
         for (String s : inputs)

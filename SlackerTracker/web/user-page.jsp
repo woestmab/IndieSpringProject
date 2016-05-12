@@ -76,7 +76,7 @@
                   <div class="form-group">
                     <label class="col-md-4 control-label" for="edit-streetNumber">Street Number:</label>
                     <div class="col-md-6">
-                      <input id="edit-streetNumber" name="streetNumber" type="text" placeholder="Street Number"
+                      <input id="edit-streetNumber" name="edit-streetNumber" type="text" placeholder="Street Number"
                              class="form-control input-md" required>
                     </div>
                   </div>
@@ -85,7 +85,7 @@
                   <div class="form-group">
                     <label class="col-md-4 control-label" for="edit-streetName">Street Name:</label>
                     <div class="col-md-6">
-                      <input id="edit-streetName" name="streetName" type="text" placeholder="Street Name"
+                      <input id="edit-streetName" name="edit-streetName" type="text" placeholder="Street Name"
                              class="form-control input-md" required>
 
                     </div>
@@ -95,7 +95,7 @@
                   <div class="form-group">
                     <label class="col-md-4 control-label" for="edit-city">City:</label>
                     <div class="col-md-6">
-                      <input id="edit-city" name="city" type="text" placeholder="City"
+                      <input id="edit-city" name="edit-city" type="text" placeholder="City"
                              class="form-control input-md" required>
                     </div>
                   </div>
@@ -104,7 +104,7 @@
                   <div class="form-group">
                     <label class="col-md-4 control-label" for="edit-state">State:</label>
                     <div class="col-md-6">
-                      <input id="edit-state" name="state" type="text" placeholder="State"
+                      <input id="edit-state" name="edit-state" type="text" placeholder="State"
                              class="form-control input-md" required>
                     </div>
                   </div>
@@ -113,7 +113,7 @@
                   <div class="form-group">
                     <label class="col-md-4 control-label" for="edit-zip">Zip Code:</label>
                     <div class="col-md-6">
-                      <input id="edit-zip" name="zip" type="number" placeholder="Zip code"
+                      <input id="edit-zip" name="edit-zip" type="number" placeholder="Zip code"
                              class="form-control input-md" required>
 
                     </div>
@@ -123,6 +123,8 @@
 
                   <!-- Interfaces.Form Name -->
                   <legend>Details</legend>
+
+                  <input id="edit-id" type="number" name="edit-id" hidden>
 
                   <!-- Text input-->
                   <div class="form-group">

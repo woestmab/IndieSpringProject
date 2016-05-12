@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCallbackHandler;
 
 import javax.sql.DataSource;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -93,5 +94,21 @@ public class AppointmentJDBCTemplate
 
         appt = jdbcTemplateObject.query(sql, new AppointmentMapper());
         return (Appointment) appt.get(0);
+    }
+
+    public void updateAppointment(Appointment appt)
+    {
+        String update;
+
+        Object[] params = {appt.getLocationsId(), appt.getTitle(), appt.getStart(),
+                appt.getEnd(), appt.getDate(), appt.getId()};
+
+        int types[] = {Types.INTEGER, Types.VARCHAR, Types.BIGINT, Types.BIGINT,
+                Types.DATE, Types.INTEGER};
+
+        update = "UPDATE appointments SET locations_id = ?, title = ?, start = ?, end = ?," +
+                " date = ? WHERE id = ?";
+
+        jdbcTemplateObject.update(update, params, types);
     }
 }

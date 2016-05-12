@@ -107,13 +107,14 @@
 
         $('#edit-modal').on('show.bs.modal', function ()
         {
-            console.log('edit-modal');
+            console.log(appLoc[0].id);
             $('#edit-streetNumber').val(appLoc[1]['street-number']);
             $('#edit-streetName').val(appLoc[1]['street-name']);
             $('#edit-city').val(appLoc[1]['city']);
             $('#edit-state').val(appLoc[1]['state']);
             $('#edit-zip').val(appLoc[1]['zip']);
-            
+
+            $('#edit-id').val(appLoc[0].id);
             $('#edit-title').val(appLoc[0].title);
             $('#edit-start').val(getStringTime(appLoc[0].start));
             $('#edit-end').val(getStringTime(appLoc[0].end));
