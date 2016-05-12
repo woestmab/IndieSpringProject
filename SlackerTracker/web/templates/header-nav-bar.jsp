@@ -17,7 +17,8 @@
 
           </span> Sign Up</a>
           </li>
-          <li><a href="${pageContext.request.contextPath}/user-page.jsp"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+          <li><a id="login" href="${pageContext.request.contextPath}/user-page.jsp">
+            <span class="glyphicon glyphicon-log-in"></span> Login</a>
           </li>
         </ul>
       </div>

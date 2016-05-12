@@ -14,9 +14,10 @@
     <c:import url="${pageContext.request.contextPath}/templates/header-nav-bar.jsp"/>
   </head>
   <body class="body-unsecure">
-    <h1 class="text-center h1-absolute">Login or sign up</h1>
-    <c:import url="${pageContext.request.contextPath}/templates/login-form.jsp"/>
-
+    <div class="row">
+      <h1 class="text-center white">Login or sign up</h1>
+      <c:import url="${pageContext.request.contextPath}/templates/login-form.jsp"/>
+    </div>
     <video autoplay="" loop="" class="fillWidth fadeIn animated"
            poster="https://s3-us-west-2.amazonaws.com/coverr/poster/Traffic-blurred2.jpg"
            id="video-background">

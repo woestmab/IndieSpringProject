@@ -12,8 +12,10 @@
     <title>Slacker Tracker</title>
     <c:import url="${pageContext.request.contextPath}/templates/head-links.jsp"/>
   </head>
-  <body class="body-unsecure">
+
+  <body class="body-unsecure" id="body-index">
     <c:import url="${pageContext.request.contextPath}/templates/header-nav-bar.jsp"/>
+    <a href="${pageContext.request.contextPath}/user-page.jsp">
     <div class="text-center white container">
       <h1>Welcome to SlackerTracker</h1>
       <div class=" white">
@@ -36,15 +38,17 @@
           </div>
         </div>
         <div class="container">
-          <h2>Click anywhere to begin your journey</h2>
+          <h2>Click to begin your journey</h2>
         </div>
       </div>
-      <video autoplay="" loop="" class="fillWidth fadeIn animated"
-             poster="https://s3-us-west-2.amazonaws.com/coverr/poster/Traffic-blurred2.jpg"
-             id="video-background">
-        <source src="https://s3-us-west-2.amazonaws.com/coverr/mp4/Traffic-blurred2.mp4"
-                type="video/mp4">
-        Your browser does not support the video tag. I suggest you upgrade your browser.
-      </video>
+    </div>
+    <video autoplay="" loop="" class="fillWidth fadeIn animated"
+           poster="https://s3-us-west-2.amazonaws.com/coverr/poster/Traffic-blurred2.jpg"
+           id="video-background">
+      <source src="https://s3-us-west-2.amazonaws.com/coverr/mp4/Traffic-blurred2.mp4"
+              type="video/mp4">
+      Your browser does not support the video tag. I suggest you upgrade your browser.
+    </video>
+    </a>
   </body>
 </html>

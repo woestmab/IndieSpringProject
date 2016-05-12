@@ -1,4 +1,4 @@
-<div class="container white col-sm-offset-2">
+<div class="white col-sm-6 col-sm-offset-3">
   <FORM class="form-horizontal" ACTION="j_security_check" METHOD="POST">
     <div class="form-group">
       <label class="col-sm-2 control-label" for="j_username">User
