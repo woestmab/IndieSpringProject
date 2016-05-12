@@ -186,8 +186,6 @@ function getStringTime(ms)
     var time = (date.getHours() < 10 ? '0' : '') + date.getHours();
     time += ":";
     time += (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
-    time += ":";
-    time += (date.getSeconds() < 10 ? '0' : '') + date.getSeconds();
     return time;
 }
 
