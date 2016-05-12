@@ -57,13 +57,13 @@ public class AppointmentJDBCTemplate
 
         return results;
     }
-//
-//    public Appointment getAppointment(int id)
-//    {
-//        List appt;
-//        String sql = "SELECT title, locations_id, start, end, date FROM appointments WHERE id=" + id;
-//
-//        appt = jdbcTemplateObject.query(sql, new AppointmentMapper());
-//        return (Appointment) appt.get(0);
-//    }
+
+    public Appointment getAppointment(int id)
+    {
+        List appt;
+        String sql = "SELECT title, locations_id, start, end, date FROM appointments WHERE id=" + id;
+
+        appt = jdbcTemplateObject.query(sql, new AppointmentMapper());
+        return (Appointment) appt.get(0);
+    }
 }
