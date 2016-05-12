@@ -163,9 +163,9 @@
 
                 </fieldset>
               </div>
-              <button id="edit-delete-btn" type="button" class="btn btn-danger"
-                      data-dismiss="modal">Delete
-              </button>
+              <%--<button id="edit-delete-btn" type="button" class="btn btn-danger"--%>
+                      <%--data-dismiss="modal">Delete--%>
+              <%--</button>--%>
               <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel
               </button>
               <input type="submit" class="btn btn-success" value="submit" name="Save">
