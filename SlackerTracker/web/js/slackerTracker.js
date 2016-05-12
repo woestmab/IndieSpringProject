@@ -62,6 +62,10 @@
             $('#edit-li').addClass("active");
             $('#route-li').removeClass("active");
             $('#cal-li').removeClass("active");
+
+            var url = '/get-appts';
+            var date = null;
+            
         });
 
         routeBtn.click(function ()
