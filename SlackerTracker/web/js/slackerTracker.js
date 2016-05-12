@@ -145,8 +145,14 @@ function addEditTable(data)
     data.forEach(function (a)
     {
             $('#edit-table tbody').append('<tr id="' + a.id + '"><td>'+ a.title + '</td><td>' +
-                a.start + '</td><td>'+ a.end + '</td></tr>');
+                msToDate(a.start) + '</td><td>'+ msToDate(a.end) + '</td></tr>');
     });
+}
+
+function msToDate(ms)
+{
+    var date = new Date(ms);
+    return date.toString();
 }
 
 function refreshRouteTable()
