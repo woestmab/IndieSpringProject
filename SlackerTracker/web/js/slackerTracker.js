@@ -21,6 +21,7 @@
         var backButton = $('#backButton');
         var calTab = $('#cal-tab');
         var routeTab = $('#route-tab');
+        var editTab = $('#edit-tab');
         var routeBtn = $('#route-btn');
 
         backButton.click(calendar);
@@ -40,6 +41,7 @@
             $('#route-div').hide();
             $('#cal-li').addClass("active");
             $('#route-li').removeClass("active");
+            $('#edit-li').removeClass("active");
             calendar();
         });
 
@@ -48,6 +50,17 @@
             $('#route-div').show();
             $('#cal-div').hide();
             $('#route-li').addClass("active");
+            $('#cal-li').removeClass("active");
+            $('#edit-li').removeClass("active");
+        });
+
+        editTab.click(function ()
+        {
+            $('#edit-div').show();
+            $('#route-div').hide();
+            $('#cal-div').hide();
+            $('#edit-li').addClass("active");
+            $('#route-li').removeClass("active");
             $('#cal-li').removeClass("active");
         });
 

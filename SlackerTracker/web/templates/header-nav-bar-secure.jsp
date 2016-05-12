@@ -14,6 +14,7 @@
         <ul class="nav navbar-nav">
           <li id="cal-li" class="active"><a id="cal-tab" href="#">Calendar</a></li>
           <li id="route-li"><a id="route-tab" href="#">Daily Routes</a></li>
+          <li id="edit-li"><a id="edit-tab" href="#">Edit Appointments</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
 
