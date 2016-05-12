@@ -91,6 +91,11 @@
             });
         });
 
+        $('body').on('click', 'table > tbody > tr', function (e)
+        {
+            console.log(this.id);
+        });
+
     });
 })
 (jQuery);
@@ -129,7 +134,7 @@ function addRouteTable(data)
 
 function addEditTable(data)
 {
-    var table = $('<table id="edit-table" class="table table-bordered">');
+    var table = $('<table id="edit-table" class="table table-bordered table-striped table-hover">');
     var thead = $('<thead><tr><th>Title</th><th>Start</th><th>End</th></tr></thead>');
     var tbody = $('<tbody>');
 
@@ -139,9 +144,8 @@ function addEditTable(data)
 
     data.forEach(function (a)
     {
-            $('#edit-table tbody').append('<tr><td>'+ a.title + '</td><td>' +
+            $('#edit-table tbody').append('<tr id="' + a.id + '"><td>'+ a.title + '</td><td>' +
                 a.start + '</td><td>'+ a.end + '</td></tr>');
-            console.log(a);
     });
 }
 
