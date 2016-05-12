@@ -1,5 +1,6 @@
 package servlets;
 
+import org.apache.log4j.Category;
 import persistence.AppointmentJDBCTemplate;
 import persistence.LocationJDBCTemplate;
 import util.Validator;
@@ -10,6 +11,7 @@ import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,6 +45,8 @@ public class MakeAppointmentServlet extends HttpServlet
         LocationJDBCTemplate locJDBC;
         ArrayList<String> inputs;
         List locResults;
+        String error = null;
+        String url;
 
         loc = new Location();
         appt = new Appointment();
@@ -76,40 +80,62 @@ public class MakeAppointmentServlet extends HttpServlet
         inputs.add(endTime);
         inputs.add(date);
 
-        if (!val.isEmpty(inputs))
+        while (true)
         {
-            loc.setStreetNumber(Integer.parseInt(streetNumber));
-            loc.setStreetName(streetName);
-            loc.setCity(city);
-            loc.setState(state);
-            loc.setZip(Integer.parseInt(zip));
-
-            appt.setTitle(title);
-            appt.setStart(converter.stringToTimeInMs(startTime, date));
-            appt.setEnd(converter.stringToTimeInMs(endTime, date));
-            appt.setDate(date);
-
-            if (val.validForm(loc) && val.validForm(appt))
+            if (!val.isEmpty(inputs))
             {
-                locResults = locJDBC.getLocationId(loc);
+                try
+                {
+                    loc.setStreetNumber(Integer.parseInt(streetNumber));
+                } catch (NumberFormatException nfe)
+                {
+                    System.out.println("Problem parsing input string to Integer");
+                    nfe.printStackTrace();
 
-                if (locResults.isEmpty())
-                {
-                    loc.setId(locJDBC.insert(loc));
-                    appt.setLocationsId(loc.getId());
-                    apptJDBC.insert(appt);
+                    error = "There was a problem submitting your appointment.  " +
+                            "Check your entries and try again.";
+                    request.setAttribute("error", error);
+                    break;
                 }
-                else
+
+                loc.setStreetName(streetName);
+                loc.setCity(city);
+                loc.setState(state);
+                loc.setZip(Integer.parseInt(zip));
+
+                appt.setTitle(title);
+                appt.setStart(converter.stringToTimeInMs(startTime, date));
+                appt.setEnd(converter.stringToTimeInMs(endTime, date));
+                appt.setDate(date);
+
+                if (val.validForm(loc) && val.validForm(appt))
                 {
-                    appt.setLocationsId((Integer) locResults.get(0));
-                    apptJDBC.insert(appt);
+                    locResults = locJDBC.getLocationId(loc);
+
+                    if (locResults.isEmpty())
+                    {
+                        loc.setId(locJDBC.insert(loc));
+                        appt.setLocationsId(loc.getId());
+                        apptJDBC.insert(appt);
+                    } else
+                    {
+                        appt.setLocationsId((Integer) locResults.get(0));
+                        apptJDBC.insert(appt);
+                    }
                 }
+            } else
+            {
+                error = "There was a problem submitting your appointment.  " +
+                        "Check your entries and try again.";
+                request.setAttribute("error", error);
             }
-            // TODO: 5/8/16 error message
+            break;
         }
-        // TODO: 5/8/16 error message
 
-        response.sendRedirect("user-page.jsp");
+        url = "/user-page.jsp";
+
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
+        dispatcher.forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

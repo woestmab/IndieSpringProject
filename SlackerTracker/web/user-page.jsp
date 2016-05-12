@@ -11,6 +11,12 @@
   <head>
     <title>Slacker Tracker</title>
     <c:import url="${pageContext.request.contextPath}/templates/head-links.jsp"/>
+    <c:if test="${not empty error}">
+      <script>
+        var message = "${error}";
+        alert(message);
+      </script>
+    </c:if>
   </head>
   <body>
     <c:import url="${pageContext.request.contextPath}/templates/header-nav-bar-secure.jsp"/>

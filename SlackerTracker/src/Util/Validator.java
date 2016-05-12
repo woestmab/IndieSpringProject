@@ -76,7 +76,6 @@ public class Validator
         if (input != null)
         {
             int length = input.length();
-            // TODO: 5/8/16 properties file
             return length > 0 && length <= 100;
         }
         return false;
