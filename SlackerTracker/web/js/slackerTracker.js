@@ -49,6 +49,7 @@
         {
             $('#route-div').show();
             $('#cal-div').hide();
+            $('#edit-div').hide();
             $('#route-li').addClass("active");
             $('#cal-li').removeClass("active");
             $('#edit-li').removeClass("active");
@@ -65,6 +66,13 @@
 
             var url = '/get-appts';
             var date = null;
+
+            $.get(url, date, function (data)
+            {
+                refreshEditTable();
+                refreshRouteTable();
+                addEditTable(data.result);
+            });
             
         });
 
@@ -77,8 +85,9 @@
 
             $.get(url, function (data)
             {
-                refreshTable();
-                addTable(data);
+                refreshRouteTable();
+                refreshEditTable();
+                addRouteTable(data);
             });
         });
 
@@ -86,7 +95,7 @@
 })
 (jQuery);
 
-function addTable(data)
+function addRouteTable(data)
 {
     var json = $.parseJSON(data);
 
@@ -118,7 +127,30 @@ function addTable(data)
     });
 }
 
-function refreshTable()
+function addEditTable(data)
+{
+    var table = $('<table id="edit-table" class="table table-bordered">');
+    var thead = $('<thead><tr><th>Title</th><th>Start</th><th>End</th></tr></thead>');
+    var tbody = $('<tbody>');
+
+    $('#edit-div').append(table);
+    $('#edit-table').append(thead);
+    $('#edit-table').append(tbody);
+
+    data.forEach(function (a)
+    {
+            $('#edit-table tbody').append('<tr><td>'+ a.title + '</td><td>' +
+                a.start + '</td><td>'+ a.end + '</td></tr>');
+            console.log(a);
+    });
+}
+
+function refreshRouteTable()
 {
     $('#result-table').remove();
+}
+
+function refreshEditTable()
+{
+    $('#edit-table').remove();
 }

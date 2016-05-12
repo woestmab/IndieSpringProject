@@ -17,6 +17,7 @@
 
     <c:import url="${pageContext.request.contextPath}/templates/cal-div.jsp"/>
     <c:import url="${pageContext.request.contextPath}/templates/route-div.jsp"/>
+    <c:import url="${pageContext.request.contextPath}/templates/edit-div.jsp"/>
 
     <!-- Modal -->
     <div class="modal fade" id="addAppointmentModal-page1" tabindex="-1" role="dialog"
