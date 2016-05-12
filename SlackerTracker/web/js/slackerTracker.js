@@ -10,7 +10,8 @@
         $("#wait").css("display", "block");
     });
 
-    $(document).ajaxComplete(function(){
+    $(document).ajaxComplete(function ()
+    {
         $("#wait").css("display", "none");
     });
 
@@ -23,6 +24,7 @@
         var routeTab = $('#route-tab');
         var editTab = $('#edit-tab');
         var routeBtn = $('#route-btn');
+        var appLoc;
 
         backButton.click(calendar);
 
@@ -74,7 +76,7 @@
                 refreshRouteTable();
                 addEditTable(data.result);
             });
-            
+
         });
 
         routeBtn.click(function ()
@@ -95,12 +97,27 @@
         $('body').on('click', 'table > tbody > tr', function (e)
         {
             var url = '/get-records?id=' + this.id;
-            // console.log(this.id);
             $.get(url, function (data)
             {
-                console.log(data);
+                appLoc = data;
+                console.log(appLoc);
                 $('#edit-modal-link').click();
-            })
+            });
+        });
+
+        $('#edit-modal').on('show.bs.modal', function ()
+        {
+            console.log('edit-modal');
+            $('#edit-streetNumber').val(appLoc[1]['street-number']);
+            $('#edit-streetName').val(appLoc[1]['street-name']);
+            $('#edit-city').val(appLoc[1]['city']);
+            $('#edit-state').val(appLoc[1]['state']);
+            $('#edit-zip').val(appLoc[1]['zip']);
+            
+            $('#edit-title').val(appLoc[0].title);
+            $('#edit-start').val(getStringTime(appLoc[0].start));
+            $('#edit-end').val(getStringTime(appLoc[0].end));
+            $('#edit-date').val(getStringDate(appLoc[0].start));
         });
 
     });
@@ -130,9 +147,9 @@ function addRouteTable(data)
     {
         t.forEach(function (r)
         {
-            $('#result-table tbody').append('<tr><td>'+ r["bus-number"] + '</td><td>' +
-                r["departure-time"] + '</td><td>'+ r["departure-stop"] + '</td><td>'+
-                r["stop-location"] + '</td><td>'+ r["arrival-time"] + '</td><td>'+
+            $('#result-table tbody').append('<tr><td>' + r["bus-number"] + '</td><td>' +
+                r["departure-time"] + '</td><td>' + r["departure-stop"] + '</td><td>' +
+                r["stop-location"] + '</td><td>' + r["arrival-time"] + '</td><td>' +
                 r["arrival-stop"] + '</td></tr>');
             console.log(r);
         });
@@ -151,8 +168,8 @@ function addEditTable(data)
 
     data.forEach(function (a)
     {
-            $('#edit-table tbody').append('<tr id="' + a.id + '"><td>'+ a.title + '</td><td>' +
-                msToDate(a.start) + '</td><td>'+ msToDate(a.end) + '</td></tr>');
+        $('#edit-table tbody').append('<tr id="' + a.id + '"><td>' + a.title + '</td><td>' +
+            msToDate(a.start) + '</td><td>' + msToDate(a.end) + '</td></tr>');
     });
 }
 
@@ -160,6 +177,28 @@ function msToDate(ms)
 {
     var date = new Date(ms);
     return date.toString();
+}
+
+function getStringTime(ms)
+{
+    var date = new Date(ms);
+    var time = (date.getHours() < 10 ? '0' : '') + date.getHours();
+    time += ":";
+    time += (date.getMinutes() < 10 ? '0' : '') + date.getMinutes();
+    time += ":";
+    time += (date.getSeconds() < 10 ? '0' : '') + date.getSeconds();
+    return time;
+}
+
+function getStringDate(ms)
+{
+    var date = new Date(ms);
+    var day = (date.getDate() < 10 ? "0" : "") + date.getDate();
+    var month = (date.getMonth() < 10 ? "0" : "") + (date.getMonth() + 1);
+    var year = date.getFullYear();
+    var sDate = year + "-" + month + "-" + day;
+    console.log(sDate);
+    return sDate;
 }
 
 function refreshRouteTable()

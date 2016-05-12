@@ -20,11 +20,11 @@
 
           <li>
             <a href="#" class="" data-toggle="modal"
-                    data-target="#addAppointmentModal-page1">
+                    data-target="#add-modal">
               <span class="glyphicon glyphicon-calendar"></span> Add Appointment
             </a>
             <a id="edit-modal-link" href="#" class="hidden" data-toggle="modal"
-                    data-target="#editAppointmentModal-page1">
+                    data-target="#edit-modal">
             </a>
           </li>
           <li>

@@ -20,7 +20,7 @@
     <c:import url="${pageContext.request.contextPath}/templates/edit-div.jsp"/>
 
     <!-- Modal -->
-    <div class="modal fade" id="addAppointmentModal-page1" tabindex="-1" role="dialog"
+    <div class="modal fade" id="add-modal" tabindex="-1" role="dialog"
          aria-labelledby="addAppointmentModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -48,7 +48,7 @@
       </div>
     </div>
 
-    <div class="modal fade" id="editAppointmentModal-page1" tabindex="-1" role="dialog"
+    <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog"
          aria-labelledby="addAppointmentModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -61,17 +61,106 @@
           <div class="modal-body">
             <form action="update-appt" method="post">
               <div id="editForms">
-                <c:import
-                    url="${pageContext.request.contextPath}/templates/location-form-fragment.jsp"/>
-                <c:import
-                    url="${pageContext.request.contextPath}/templates/appointment-form-fragment.jsp"/>
+
+                <fieldset>
+
+                  <legend>Location</legend>
+
+                  <!-- Street number input-->
+                  <div class="form-group">
+                    <label class="col-md-4 control-label" for="edit-streetNumber">Street Number:</label>
+                    <div class="col-md-6">
+                      <input id="edit-streetNumber" name="streetNumber" type="text" placeholder="Street Number"
+                             class="form-control input-md" required>
+                    </div>
+                  </div>
+
+                  <!-- Street name input-->
+                  <div class="form-group">
+                    <label class="col-md-4 control-label" for="edit-streetName">Street Name:</label>
+                    <div class="col-md-6">
+                      <input id="edit-streetName" name="streetName" type="text" placeholder="Street Name"
+                             class="form-control input-md" required>
+
+                    </div>
+                  </div>
+
+                  <!-- City input-->
+                  <div class="form-group">
+                    <label class="col-md-4 control-label" for="edit-city">City:</label>
+                    <div class="col-md-6">
+                      <input id="edit-city" name="city" type="text" placeholder="City"
+                             class="form-control input-md" required>
+                    </div>
+                  </div>
+
+                  <!-- State input-->
+                  <div class="form-group">
+                    <label class="col-md-4 control-label" for="edit-state">State:</label>
+                    <div class="col-md-6">
+                      <input id="edit-state" name="state" type="text" placeholder="State"
+                             class="form-control input-md" required>
+                    </div>
+                  </div>
+
+                  <!-- Zip input-->
+                  <div class="form-group">
+                    <label class="col-md-4 control-label" for="edit-zip">Zip Code:</label>
+                    <div class="col-md-6">
+                      <input id="edit-zip" name="zip" type="number" placeholder="Zip code"
+                             class="form-control input-md" required>
+
+                    </div>
+                  </div>
+                </fieldset>
+                <fieldset>
+
+                  <!-- Interfaces.Form Name -->
+                  <legend>Details</legend>
+
+                  <!-- Text input-->
+                  <div class="form-group">
+                    <label class="col-md-4 control-label" for="edit-title">Appointment Title:</label>
+                    <div class="col-md-6">
+                      <input id="edit-title" name="edit-title" type="text" placeholder="Appointment title"
+                             class="form-control input-md" required>
+                    </div>
+                  </div>
+
+                  <!-- Text input-->
+                  <div class="form-group">
+                    <label class="col-md-4 control-label" for="edit-start">Start Time:</label>
+                    <div class="col-md-6">
+                      <input id="edit-start" name="edit-start" type="time" placeholder="Start time"
+                             class="form-control input-md" required>
+                    </div>
+                  </div>
+
+                  <!-- Text input-->
+                  <div class="form-group">
+                    <label class="col-md-4 control-label" for="edit-end">End Time:</label>
+                    <div class="col-md-6">
+                      <input id="edit-end" name="edit-end" type="time" placeholder="End time"
+                             class="form-control input-md" required>
+                    </div>
+                  </div>
+
+                  <!-- Text input-->
+                  <div class="form-group">
+                    <label class="col-md-4 control-label" for="edit-date">Date:</label>
+                    <div class="col-md-6">
+                      <input id="edit-date" name="edit-date" type="date" class="form-control input-md" required>
+                    </div>
+                  </div>
+
+                </fieldset>
               </div>
-              <button id="delete-button" type="button" class="btn btn-danger"
+              <button id="edit-delete-btn" type="button" class="btn btn-danger"
                       data-dismiss="modal">Delete
               </button>
               <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel
               </button>
-              <input type="submit" class="btn btn-success" value="submit" name="submit">
+              <input type="submit" class="btn btn-success" value="submit" name="Save">
             </form>
           </div>
 
