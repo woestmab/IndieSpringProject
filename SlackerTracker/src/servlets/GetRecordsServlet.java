@@ -32,8 +32,8 @@ import java.util.ArrayList;
  */
 
 @WebServlet(
-        name = "getApptsServlet",
-        urlPatterns = "/get-appts"
+        name = "getRecordsServlet",
+        urlPatterns = "/get-records"
 )
 
 public class GetRecordsServlet extends HttpServlet

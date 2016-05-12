@@ -31,7 +31,7 @@
             var calendar = $("#calendar").calendar(
                 {
                     tmpl_path: "tmpls/",
-                    events_source: "/get-appts"
+                    events_source: "/get-records"
                 });
         }
 
@@ -65,7 +65,7 @@
             $('#route-li').removeClass("active");
             $('#cal-li').removeClass("active");
 
-            var url = '/get-appts';
+            var url = '/get-records';
             var date = null;
 
             $.get(url, date, function (data)
@@ -79,7 +79,7 @@
 
         routeBtn.click(function ()
         {
-            var url = "/get-appts";
+            var url = "/get-records";
             var date = $('#route-date-input').val();
 
             url += "?date=" + date;
@@ -94,7 +94,7 @@
 
         $('body').on('click', 'table > tbody > tr', function (e)
         {
-            var url = '/get-appts?id=' + this.id;
+            var url = '/get-records?id=' + this.id;
             // console.log(this.id);
             $.get(url, function (data)
             {
