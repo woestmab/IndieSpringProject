@@ -5,6 +5,10 @@ import interfaces.Form;
 /**
  * Created by Bdub on 3/5/16.
  */
+
+/**
+ * this class is a pojo that holds the data for appointments
+ */
 public class Appointment implements Form
 {
     private static final String type = "Appointment";
@@ -23,6 +27,11 @@ public class Appointment implements Form
 
 
     private transient String date;
+
+    /**
+     * gets type
+     * @return
+     */
 
     public String getType()
     {
@@ -69,11 +78,21 @@ public class Appointment implements Form
         this.locationsId = locationsId;
     }
 
+    /**
+     * Gets location.
+     *
+     * @return the location
+     */
     public Location getLocation()
     {
         return location;
     }
 
+    /**
+     * Sets location.
+     *
+     * @param location the location
+     */
     public void setLocation(Location location)
     {
         this.location = location;
@@ -139,36 +158,70 @@ public class Appointment implements Form
         this.apptClass = apptClass;
     }
 
+    /**
+     * Gets start.
+     *
+     * @return the start
+     */
     public long getStart()
     {
         return start;
     }
 
+    /**
+     * Sets start.
+     *
+     * @param start the start
+     */
     public void setStart(long start)
     {
         this.start = start;
     }
 
+    /**
+     * Gets end.
+     *
+     * @return the end
+     */
     public long getEnd()
     {
         return end;
     }
 
+    /**
+     * Sets end.
+     *
+     * @param end the end
+     */
     public void setEnd(long end)
     {
         this.end = end;
     }
 
+    /**
+     * Gets date.
+     *
+     * @return the date
+     */
     public String getDate()
     {
         return date;
     }
 
+    /**
+     * Sets date.
+     *
+     * @param date the date
+     */
     public void setDate(String date)
     {
         this.date = date;
     }
 
+    /**
+     * creates stringified version of the class
+     * @return
+     */
     public String toString()
     {
         String string;

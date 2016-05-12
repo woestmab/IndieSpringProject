@@ -8,6 +8,7 @@ import java.sql.SQLException;
 
 /**
  * Created by Bdub on 3/6/16.
+ * this class is for mapping the location table to the location pojo
  */
 
 

@@ -23,8 +23,9 @@ import java.util.List;
 
 /**
  * Created by Bdub on 4/2/16.
+ * this servlet creates a new appointment for the parameters that are posted and also creates
+ * a location if there isn't one already in the database
  */
-
 @WebServlet(
         name = "make-appt",
         urlPatterns = "/make-appt"

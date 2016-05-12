@@ -11,6 +11,7 @@ import java.util.*;
 
 /**
  * Created by Bdub on 3/6/16.
+ * this class is does the database handling for the location table
  */
 public class LocationJDBCTemplate
 {
@@ -18,12 +19,24 @@ public class LocationJDBCTemplate
     private DataSource dataSource;
     private JdbcTemplate jdbcTemplateObject;
 
+    /**
+     * Sets data source.
+     *
+     * @param dataSource the data source
+     */
+
     public void setDataSource(DataSource dataSource)
     {
         this.dataSource = dataSource;
         this.jdbcTemplateObject = new JdbcTemplate(dataSource);
     }
 
+    /**
+     * Insert location in the database
+     *
+     * @param loc the loc
+     * @return the int
+     */
     public int insert(Location loc)
     {
         int streetNumber = loc.getStreetNumber();
@@ -48,6 +61,12 @@ public class LocationJDBCTemplate
         return insert.executeAndReturnKey(map).intValue();
     }
 
+    /**
+     * Gets location by id
+     *
+     * @param id the id
+     * @return the location
+     */
     public Location getLocation(Integer id)
     {
         ArrayList result;
@@ -66,11 +85,13 @@ public class LocationJDBCTemplate
         {
             return null;
         }
-
-//        location.setId((Integer) result.get(0));
-//        location.setStreetNumber((Integer) result.get(1));
     }
 
+    /**
+     * Gets all locations.
+     *
+     * @return the all locations
+     */
     public List<Location> getAllLocations()
     {
         ArrayList result;
@@ -80,6 +101,12 @@ public class LocationJDBCTemplate
         return jdbcTemplateObject.query(sql, new LocationMapper());
     }
 
+    /**
+     * Delete location by id
+     *
+     * @param id the id
+     */
+
     public void deleteLocation(Number id)
     {
         String sql = "DELETE FROM locations WHERE id = ?";
@@ -87,6 +114,12 @@ public class LocationJDBCTemplate
         jdbcTemplateObject.update(sql, id);
     }
 
+    /**
+     * Gets location id for all entries matching the input
+     *
+     * @param loc the loc
+     * @return the location id
+     */
     public List getLocationId(Location loc)
     {
         List results;

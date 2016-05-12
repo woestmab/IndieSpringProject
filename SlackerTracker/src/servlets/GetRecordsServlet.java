@@ -29,8 +29,8 @@ import java.util.ArrayList;
 
 /**
  * Created by Bdub on 5/8/16.
+ * this servlet returns requests for records with the appropriate json
  */
-
 @WebServlet(
         name = "getRecordsServlet",
         urlPatterns = "/get-records"
@@ -39,11 +39,6 @@ import java.util.ArrayList;
 public class GetRecordsServlet extends HttpServlet
 {
     private static Logger log = Logger.getLogger("servlets.GetRecords");
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException
-    {
-    }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException
@@ -143,5 +138,6 @@ public class GetRecordsServlet extends HttpServlet
             out.print(json);
             out.flush();
         }
+        // TODO: 5/12/16 error response message
     }
 }

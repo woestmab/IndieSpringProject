@@ -1,4 +1,6 @@
-package servlets; /**
+package servlets;
+
+/**
  * Created by Bdub on 2/20/16.
  */
 
@@ -11,6 +13,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * The type Login error servlet.
+ */
 @WebServlet
         (
                 name = "loginErrorServlet",

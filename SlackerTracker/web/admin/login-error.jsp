@@ -13,6 +13,7 @@
     <c:import url="${pageContext.request.contextPath}/templates/head-links.jsp" />
   </head>
   <body>
+    <c:import url="${pageContext.request.contextPath}/templates/header-nav-bar.jsp"/>
     <h1>There was an error logging you in.</h1>
   </body>
 </html>

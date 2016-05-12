@@ -141,6 +141,11 @@ public class Location implements Form
         this.zip = zip;
     }
 
+    /**
+     * this method strinifies the class
+     * @return
+     */
+
     public String toString(){
         String str;
         str = "id: " + id + ", streetNumber: " + streetNumber + ", streetName: " +

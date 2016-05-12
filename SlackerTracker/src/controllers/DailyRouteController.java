@@ -15,24 +15,42 @@ import java.util.*;
 /**
  * Created by Bdub on 5/10/16.
  */
+
+/**
+ * this class is used to parse the data that is returned from queries to google directions
+ */
 public class DailyRouteController
 {
     private static final Logger log = Logger.getLogger("slackerTracker");
-    private static ApplicationContext context = new ClassPathXmlApplicationContext
+
+    private ApplicationContext context = new ClassPathXmlApplicationContext
             ("Beans.xml");
-    private static AppointmentJDBCTemplate apptJDBC = (AppointmentJDBCTemplate) context.getBean
+    private AppointmentJDBCTemplate apptJDBC = (AppointmentJDBCTemplate) context.getBean
             ("appointmentJDBCTemplate");
-    private static LocationJDBCTemplate locJDBC = (LocationJDBCTemplate) context.getBean
+    private LocationJDBCTemplate locJDBC = (LocationJDBCTemplate) context.getBean
             ("locationJDBCTemplate");
 
     private ArrayList<Appointment> appts;
     private ArrayList<Location> locs;
     private ArrayList<ArrayList<Route>> trips;
 
+
+    /**
+     * Gets trips.
+     *
+     * @return the trips
+     */
+
     public ArrayList<ArrayList<Route>> getTrips()
     {
         return trips;
     }
+
+    /**
+     * this method calls the other methods that parse the returned direction results
+     * @param date
+     * @return
+     */
 
     public String createRoute(String date)
     {
@@ -40,6 +58,11 @@ public class DailyRouteController
         queryGoogleTransit();
         return null;
     }
+
+    /**
+     * this method gets the data from the database for all appointments on a date
+     * @param date
+     */
 
     private void retrieveData(String date)
     {
@@ -55,6 +78,10 @@ public class DailyRouteController
         }
     }
 
+    /**
+     * this method sorts all the incoming route information from google
+     */
+
     private void queryGoogleTransit()
     {
         Location home = locJDBC.getLocation(103);
@@ -67,7 +94,6 @@ public class DailyRouteController
             {
                 trips.add(gdc.parseRouteInfo(gdc.getRoute(home, appts.get(i).getLocation(),
                         appts.get(i), false)));
-                log.debug(trips.toString());
             }
             else if ((i <= appts.size() - 1) &&
                     (appts.get(i).getLocation().getId() != appts.get(i - 1).getLocation().getId()))

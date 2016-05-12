@@ -24,9 +24,22 @@ public class GoogleDirectionsController
     private String userAgent;
     private String googleDirectionsUrl;
 
+    /**
+     * the constructor gets the instance of the singleton
+     */
     public GoogleDirectionsController(){
         singleton = Singleton.getInstance();
     }
+
+    /**
+     * this method queries google for a route and returns an array list of all the steps
+     * needed to get to the destination
+     * @param origin
+     * @param dest
+     * @param appt
+     * @param lastTrip
+     * @return
+     */
 
     public ArrayList<Step> getRoute(Location origin, Location dest, Appointment appt, boolean lastTrip)
     {
@@ -113,6 +126,13 @@ public class GoogleDirectionsController
         }
         return null;
     }
+
+    /**
+     * this method parses the routes from the steps and eliminates steps that are not
+     * public transit
+     * @param steps
+     * @return
+     */
 
     public ArrayList<Route> parseRouteInfo(ArrayList<Step> steps)
     {

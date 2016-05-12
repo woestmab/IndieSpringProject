@@ -1,4 +1,6 @@
-package servlets; /**
+package servlets;
+
+/**
  * Created by Bdub on 2/20/16.
  */
 
@@ -15,6 +17,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Properties;
+
+/**
+ * The type Index servlet.
+ * this servlet is used to kick off the application and load the properties file
+ */
 
 @WebServlet
         (

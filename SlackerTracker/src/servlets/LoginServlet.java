@@ -19,6 +19,7 @@ import java.io.IOException;
 
 public class LoginServlet extends HttpServlet
 {
+    @Override
     public void doGet (HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IIOException
     {
@@ -32,5 +33,12 @@ public class LoginServlet extends HttpServlet
         {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException
+    {
+        String url = "/admin/login.jsp";
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(url);
     }
 }
