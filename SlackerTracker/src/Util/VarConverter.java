@@ -38,6 +38,10 @@ public class VarConverter
      */
     public long stringToTimeInMs(String timeInput, String dateInput)
     {
+        if (timeInput.length() < 6)
+        {
+            timeInput += ":00";
+        }
         DateTime date = DateTime.parse(dateInput + " " + timeInput,
                 DateTimeFormat.forPattern("yyyy-MM-dd HH:mm:ss"));
 

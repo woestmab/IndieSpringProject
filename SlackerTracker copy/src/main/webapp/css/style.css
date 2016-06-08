@@ -1,0 +1,51 @@
+#route-div, #edit-div
+{
+    display: none;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: #9B59B6;
+    color: white;
+}
+
+.white
+{
+    color: white;
+}
+
+.body-unsecure {
+    margin: 0;
+    padding: 0;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+}
+
+article {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 10px;
+}
+
+.h1-absolute {
+    position: absolute;
+    top: 60%;
+    width: 70%;
+    font-size: 64px;
+    letter-spacing: 3px;
+    color: #fff;
+    text-align: center;
+}
